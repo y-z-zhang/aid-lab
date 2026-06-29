@@ -1,94 +1,125 @@
-// Generative SVG visuals for research themes.
+// Generative SVG visuals for research themes — hand-drawn treatment.
+//
 // Renders into any element matching [data-visual] with attributes:
-//   data-visual="loss" | "phase" | "network"
+//   data-visual="loss" | "rugged" | "network" | "phase"
 //   data-stroke   – primary stroke color
 //   data-accent   – accent color (used by loss & network)
 //   data-size     – pixel size (square viewport)
+//
+// The hand-drawn feel comes from three things applied to otherwise-precise
+// geometry:
+//   1. warp()  — a smooth, deterministic 2D displacement field. Because the
+//      displacement is a pure function of (x, y), points that coincide (a
+//      shared contour vertex, an edge endpoint meeting a node) move together,
+//      so lines wobble organically without ever breaking apart.
+//   2. smooth() — draws a polyline as flowing quadratic Béziers through
+//      segment midpoints, so strokes curve like a pen rather than faceting.
+//   3. a faint second pass at a decorrelated warp phase — the classic
+//      sketch "drawn twice, not quite the same" doubling.
 
 (function () {
+  // Coherent wobble. `ph` decorrelates the second pencil pass.
+  function warp(x, y, amp, ph) {
+    ph = ph || 0;
+    const dx =
+      Math.sin(0.045 * y + 0.021 * x + 0.7 + ph) * amp +
+      Math.sin(0.110 * y - 0.030 * x + 2.1 + ph) * amp * 0.45;
+    const dy =
+      Math.cos(0.043 * x - 0.019 * y + 1.3 + ph) * amp +
+      Math.cos(0.100 * x + 0.028 * y + 0.4 + ph) * amp * 0.45;
+    return [x + dx, y + dy];
+  }
+
+  // Warp a list of [x,y] points.
+  function warpPts(pts, amp, ph) {
+    return pts.map(p => warp(p[0], p[1], amp, ph));
+  }
+
+  // Polyline → flowing path via quadratic Béziers through midpoints.
+  function smooth(pts, close) {
+    if (pts.length < 2) return '';
+    const f = n => n.toFixed(2);
+    let d = `M${f(pts[0][0])} ${f(pts[0][1])}`;
+    for (let i = 1; i < pts.length - 1; i++) {
+      const mx = (pts[i][0] + pts[i + 1][0]) / 2;
+      const my = (pts[i][1] + pts[i + 1][1]) / 2;
+      d += `Q${f(pts[i][0])} ${f(pts[i][1])} ${f(mx)} ${f(my)}`;
+    }
+    const last = pts[pts.length - 1];
+    d += `L${f(last[0])} ${f(last[1])}`;
+    if (close) d += 'Z';
+    return d;
+  }
+
+  // A primary line, drawn twice (two warp phases) for a sketched look.
+  function sketch(basePts, { stroke, width, opacity, amp, close }) {
+    const a = smooth(warpPts(basePts, amp, 0.0), close);
+    const b = smooth(warpPts(basePts, amp * 0.8, 1.9), close);
+    return (
+      `<path d="${a}" fill="none" stroke="${stroke}" stroke-width="${width}" opacity="${opacity}" stroke-linecap="round" stroke-linejoin="round"/>` +
+      `<path d="${b}" fill="none" stroke="${stroke}" stroke-width="${(width * 0.7).toFixed(2)}" opacity="${(opacity * 0.45).toFixed(2)}" stroke-linecap="round" stroke-linejoin="round"/>`
+    );
+  }
+
+  function svg(size, inner) {
+    return `<svg viewBox="0 0 240 240" width="${size}" height="${size}" style="display:block">${inner}</svg>`;
+  }
+
+  // ----------------------------------------------------------------
+  // LOSS LANDSCAPE — concentric wobbly contours + a descent spiral.
+  // ----------------------------------------------------------------
   function lossLandscape({ stroke, accent, size }) {
-    const lines = [];
+    let parts = '';
+    const steps = 64;
     for (let k = 1; k < 12; k++) {
       const v = k / 12;
-      let d = '';
-      const steps = 90;
+      const pts = [];
       for (let j = 0; j <= steps; j++) {
         const a = (j / steps) * Math.PI * 2;
         const r = 30 + v * 80 + Math.sin(a * 3 + k) * 8 + Math.cos(a * 2 + k * 0.5) * 6;
-        const x = 120 + Math.cos(a) * r * 1.0;
-        const y = 120 + Math.sin(a) * r * 0.85;
-        d += (j ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+        pts.push([120 + Math.cos(a) * r, 120 + Math.sin(a) * r * 0.85]);
       }
-      lines.push({ d, op: 0.25 + k * 0.04 });
+      const op = (0.22 + k * 0.045).toFixed(2);
+      parts += `<path d="${smooth(warpPts(pts, 1.7), true)}" fill="none" stroke="${stroke}" stroke-width="0.7" opacity="${op}" stroke-linejoin="round"/>`;
     }
-    let path = '';
-    for (let j = 0; j < 90; j++) {
-      const t = j / 90;
+    // Descent spiral inward.
+    const spiral = [];
+    for (let j = 0; j <= 84; j++) {
+      const t = j / 84;
       const a = t * Math.PI * 6;
       const r = (1 - t) * 100;
-      const x = 120 + Math.cos(a) * r;
-      const y = 120 + Math.sin(a) * r * 0.85;
-      path += (j ? 'L' : 'M') + x.toFixed(1) + ' ' + y.toFixed(1) + ' ';
+      spiral.push([120 + Math.cos(a) * r, 120 + Math.sin(a) * r * 0.85]);
     }
-    const contour = lines.map(l =>
-      `<path d="${l.d}" fill="none" stroke="${stroke}" stroke-width="0.6" opacity="${l.op.toFixed(2)}"/>`
-    ).join('');
-    return `<svg viewBox="0 0 240 240" width="${size}" height="${size}" style="display:block">
-      ${contour}
-      <path d="${path}" fill="none" stroke="${accent}" stroke-width="1.2" stroke-linecap="round"/>
-      <circle cx="120" cy="120" r="3" fill="${accent}"/>
-    </svg>`;
+    parts += sketch(spiral, { stroke: accent, width: 1.3, opacity: 0.95, amp: 2.2, close: false });
+    const c = warp(120, 120, 1.7);
+    parts += `<circle cx="${c[0].toFixed(1)}" cy="${c[1].toFixed(1)}" r="3" fill="${accent}"/>`;
+    return svg(size, parts);
   }
 
+  // ----------------------------------------------------------------
+  // PHASE PORTRAIT — a single long damped Lissajous trajectory.
+  // ----------------------------------------------------------------
   function phasePortrait({ stroke, size }) {
-    const N = 1200;
-    let d = '';
+    const N = 600;
+    const pts = [];
     for (let i = 0; i < N; i++) {
       const t = (i / N) * Math.PI * 12;
-      const r = 0.9 - i / N * 0.6;
-      const x = r * Math.cos(t * 1.0);
-      const y = r * Math.sin(t * 1.7);
-      d += (i ? 'L' : 'M') + (x * 90 + 120).toFixed(1) + ' ' + (y * 90 + 120).toFixed(1) + ' ';
+      const r = 0.9 - (i / N) * 0.6;
+      pts.push([Math.cos(t) * r * 90 + 120, Math.sin(t * 1.7) * r * 90 + 120]);
     }
-    return `<svg viewBox="0 0 240 240" width="${size}" height="${size}" style="display:block">
-      <path d="${d}" fill="none" stroke="${stroke}" stroke-width="0.7" stroke-linecap="round" opacity="0.85"/>
-    </svg>`;
+    return svg(
+      size,
+      `<path d="${smooth(warpPts(pts, 1.2), false)}" fill="none" stroke="${stroke}" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.85"/>`
+    );
   }
 
-  function networkGlyph({ stroke, accent, size }) {
-    const nodes = [];
-    const N = 12;
-    for (let i = 0; i < N; i++) {
-      const a = (i / N) * Math.PI * 2 - Math.PI / 2;
-      nodes.push([120 + Math.cos(a) * 90, 120 + Math.sin(a) * 90]);
-    }
-    const edges = [
-      [0, 5], [0, 7], [1, 6], [2, 8], [3, 9], [4, 10], [5, 11], [6, 0], [2, 5], [8, 11],
-    ];
-    const triangle = [[0, 4, 8], [2, 6, 10]];
-    const tris = triangle.map(tri =>
-      `<polygon points="${tri.map(j => nodes[j].join(',')).join(' ')}" fill="${accent}" opacity="0.10"/>`
-    ).join('');
-    const ed = edges.map(([a, b]) =>
-      `<line x1="${nodes[a][0].toFixed(1)}" y1="${nodes[a][1].toFixed(1)}" x2="${nodes[b][0].toFixed(1)}" y2="${nodes[b][1].toFixed(1)}" stroke="${stroke}" stroke-width="0.7" opacity="0.6"/>`
-    ).join('');
-    const ns = nodes.map(([x, y], i) =>
-      `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${i % 4 === 0 ? 4 : 2.6}" fill="${i % 4 === 0 ? accent : stroke}"/>`
-    ).join('');
-    return `<svg viewBox="0 0 240 240" width="${size}" height="${size}" style="display:block">
-      ${tris}${ed}${ns}
-    </svg>`;
-  }
-
+  // ----------------------------------------------------------------
+  // RUGGED LOSS — marching-squares contours of a multi-basin field,
+  // with a noisy gradient-descent trajectory. Every contour vertex is
+  // warped coherently, so the iso-lines stay closed but ripple by hand.
+  // ----------------------------------------------------------------
   function ruggedLoss({ stroke, accent, size }) {
-    // Multi-basin scalar field rendered via marching-squares contours, with
-    // a 1.6px drop shadow under each contour for depth, plus a gradient-
-    // descent training trajectory that snakes from a high corner toward
-    // the global minimum.
-    const W = 240, H = 240;
-    const GRID = 72;
-    // [cx, cy, amplitude, sigma] — negative wells are basins, positive are
-    // peaks. A gentle bowl background pulls everything inward.
+    const W = 240, H = 240, GRID = 72;
     const wells = [
       [0.34, 0.44, -1.10, 0.16],
       [0.66, 0.32, -0.55, 0.12],
@@ -111,7 +142,6 @@
       const h = 0.001;
       return [(f(x + h, y) - f(x - h, y)) / (2 * h), (f(x, y + h) - f(x, y - h)) / (2 * h)];
     }
-    // Sample the field on a regular grid.
     const grid = [];
     let zMin = Infinity, zMax = -Infinity, minI = 0, minJ = 0;
     for (let i = 0; i <= GRID; i++) {
@@ -124,28 +154,19 @@
       }
       grid.push(row);
     }
-    // Marching squares: per cell, produce the line segment(s) where the
-    // iso-level crosses the cell, with linear interpolation on each edge.
     function contour(level) {
       const segs = [];
       const dx = W / GRID, dy = H / GRID;
       for (let i = 0; i < GRID; i++) {
         for (let j = 0; j < GRID; j++) {
-          const tl = grid[i][j];
-          const tr = grid[i][j + 1];
-          const br = grid[i + 1][j + 1];
-          const bl = grid[i + 1][j];
-          const code =
-            (tl > level ? 8 : 0) |
-            (tr > level ? 4 : 0) |
-            (br > level ? 2 : 0) |
-            (bl > level ? 1 : 0);
+          const tl = grid[i][j], tr = grid[i][j + 1], br = grid[i + 1][j + 1], bl = grid[i + 1][j];
+          const code = (tl > level ? 8 : 0) | (tr > level ? 4 : 0) | (br > level ? 2 : 0) | (bl > level ? 1 : 0);
           if (code === 0 || code === 15) continue;
           const x = j * dx, y = i * dy;
-          const top    = [x + dx * (level - tl) / (tr - tl), y];
-          const right  = [x + dx, y + dy * (level - tr) / (br - tr)];
+          const top = [x + dx * (level - tl) / (tr - tl), y];
+          const right = [x + dx, y + dy * (level - tr) / (br - tr)];
           const bottom = [x + dx * (level - bl) / (br - bl), y + dy];
-          const left   = [x, y + dy * (level - tl) / (bl - tl)];
+          const left = [x, y + dy * (level - tl) / (bl - tl)];
           switch (code) {
             case 1: case 14: segs.push([left, bottom]); break;
             case 2: case 13: segs.push([bottom, right]); break;
@@ -162,44 +183,101 @@
     }
     let parts = '';
     const LEVELS = 14;
+    const f1 = n => n.toFixed(1);
     for (let k = 1; k <= LEVELS; k++) {
       const v = zMin + (zMax - zMin) * (k / (LEVELS + 1));
       const segs = contour(v);
       const opacity = 0.20 + (k / LEVELS) * 0.55;
-      let path = '', shadow = '';
+      // Warp each segment endpoint coherently; shared vertices stay joined.
+      let main = '', sk = '';
       for (let s = 0; s < segs.length; s++) {
-        const [a, b] = segs[s];
-        path   += `M${a[0].toFixed(1)} ${a[1].toFixed(1)}L${b[0].toFixed(1)} ${b[1].toFixed(1)}`;
-        shadow += `M${(a[0] + 1.6).toFixed(1)} ${(a[1] + 1.6).toFixed(1)}L${(b[0] + 1.6).toFixed(1)} ${(b[1] + 1.6).toFixed(1)}`;
+        const a0 = warp(segs[s][0][0], segs[s][0][1], 1.4);
+        const b0 = warp(segs[s][1][0], segs[s][1][1], 1.4);
+        main += `M${f1(a0[0])} ${f1(a0[1])}L${f1(b0[0])} ${f1(b0[1])}`;
+        const a1 = warp(segs[s][0][0], segs[s][0][1], 1.2, 1.9);
+        const b1 = warp(segs[s][1][0], segs[s][1][1], 1.2, 1.9);
+        sk += `M${f1(a1[0])} ${f1(a1[1])}L${f1(b1[0])} ${f1(b1[1])}`;
       }
-      parts += `<path d="${shadow}" fill="none" stroke="${stroke}" stroke-width="0.5" opacity="${(opacity * 0.22).toFixed(2)}"/>`;
-      parts += `<path d="${path}" fill="none" stroke="${stroke}" stroke-width="0.6" opacity="${opacity.toFixed(2)}"/>`;
+      parts += `<path d="${sk}" fill="none" stroke="${stroke}" stroke-width="0.5" opacity="${(opacity * 0.3).toFixed(2)}" stroke-linecap="round"/>`;
+      parts += `<path d="${main}" fill="none" stroke="${stroke}" stroke-width="0.7" opacity="${opacity.toFixed(2)}" stroke-linecap="round"/>`;
     }
     // Training trajectory: noisy gradient descent from a high corner.
-    let traj = '';
+    const traj = [];
     let px = 0.86, py = 0.16;
-    for (let i = 0; i < 220; i++) {
+    for (let i = 0; i < 200; i++) {
       const [gx, gy] = grad(px, py);
       px -= 0.012 * gx + Math.sin(i * 0.21) * 0.0009;
       py -= 0.012 * gy + Math.cos(i * 0.27) * 0.0009;
       px = Math.max(0.02, Math.min(0.98, px));
       py = Math.max(0.02, Math.min(0.98, py));
-      traj += (i ? 'L' : 'M') + (px * W).toFixed(1) + ' ' + (py * H).toFixed(1) + ' ';
+      traj.push([px * W, py * H]);
     }
-    parts += `<path d="${traj}" fill="none" stroke="${accent}" stroke-width="1.1" opacity="0.95" stroke-linecap="round" stroke-linejoin="round"/>`;
-    parts += `<circle cx="${(minJ * W / GRID).toFixed(1)}" cy="${(minI * H / GRID).toFixed(1)}" r="2.6" fill="${accent}"/>`;
-    return `<svg viewBox="0 0 240 240" width="${size}" height="${size}" style="display:block">${parts}</svg>`;
+    parts += sketch(traj, { stroke: accent, width: 1.2, opacity: 0.95, amp: 1.6, close: false });
+    const m = warp((minJ * W) / GRID, (minI * H) / GRID, 1.4);
+    parts += `<circle cx="${m[0].toFixed(1)}" cy="${m[1].toFixed(1)}" r="2.6" fill="${accent}"/>`;
+    return svg(size, parts);
+  }
+
+  // ----------------------------------------------------------------
+  // NETWORK GLYPH — ring of nodes, sketched chord edges, two faint
+  // triangular faces. Geometry is warped at draw time so nodes and the
+  // edges that meet them shift together.
+  // ----------------------------------------------------------------
+  function networkGlyph({ stroke, accent, size }) {
+    const N = 12;
+    const base = [];
+    for (let i = 0; i < N; i++) {
+      const a = (i / N) * Math.PI * 2 - Math.PI / 2;
+      base.push([120 + Math.cos(a) * 90, 120 + Math.sin(a) * 90]);
+    }
+    const edges = [[0, 5], [0, 7], [1, 6], [2, 8], [3, 9], [4, 10], [5, 11], [6, 0], [2, 5], [8, 11]];
+    const triangle = [[0, 4, 8], [2, 6, 10]];
+
+    // Sample a base segment into points so the warp can bow it.
+    function seg(p, q, n) {
+      const out = [];
+      for (let i = 0; i <= n; i++) out.push([p[0] + (q[0] - p[0]) * i / n, p[1] + (q[1] - p[1]) * i / n]);
+      return out;
+    }
+
+    let parts = '';
+
+    // Faint hand-drawn triangular faces (sketched outline + soft fill).
+    triangle.forEach(tri => {
+      const loop = [];
+      for (let e = 0; e < 3; e++) {
+        const p = base[tri[e]], q = base[tri[(e + 1) % 3]];
+        seg(p, q, 5).slice(0, -1).forEach(pt => loop.push(pt));
+      }
+      const d = smooth(warpPts(loop, 1.3), true);
+      parts += `<path d="${d}" fill="${accent}" fill-opacity="0.07" stroke="${accent}" stroke-width="0.5" opacity="0.4" stroke-linejoin="round"/>`;
+    });
+
+    // Sketched chord edges — sampled, warped, bowed.
+    edges.forEach(([a, b]) => {
+      const pts = seg(base[a], base[b], 7);
+      parts += sketch(pts, { stroke, width: 0.7, opacity: 0.55, amp: 2.0, close: false });
+    });
+
+    // Nodes — warped centers so they sit where the edges meet.
+    base.forEach((p, i) => {
+      const w = warp(p[0], p[1], 2.0);
+      const hub = i % 4 === 0;
+      parts += `<circle cx="${w[0].toFixed(1)}" cy="${w[1].toFixed(1)}" r="${hub ? 4 : 2.6}" fill="${hub ? accent : stroke}"/>`;
+    });
+
+    return svg(size, parts);
   }
 
   const renderers = { loss: lossLandscape, phase: phasePortrait, network: networkGlyph, rugged: ruggedLoss };
 
   document.querySelectorAll('[data-visual]').forEach(el => {
-    const type = el.dataset.visual;
-    const fn = renderers[type];
+    const fn = renderers[el.dataset.visual];
     if (!fn) return;
-    const stroke = el.dataset.stroke || '#EDEEEA';
-    const accent = el.dataset.accent || '#FFB67A';
-    const size = parseInt(el.dataset.size || '300', 10);
-    el.innerHTML = fn({ stroke, accent, size });
+    el.innerHTML = fn({
+      stroke: el.dataset.stroke || '#EDEEEA',
+      accent: el.dataset.accent || '#FFB67A',
+      size: parseInt(el.dataset.size || '300', 10),
+    });
   });
 })();
