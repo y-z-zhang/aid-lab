@@ -42,6 +42,20 @@ canvas { image-rendering: -webkit-optimize-contrast; }
 
 main { flex: 1; }
 
+/* Visually hidden, but read by screen readers and search engines. Used for
+   per-page <h1> topic headings on pages with a minimal (header-less) design. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Skip-to-content link: visually hidden until focused via keyboard. */
 .skip-link {
   position: absolute;
