@@ -54,11 +54,10 @@
   <main id="main">
     <h1 class="sr-only">Research — AID Lab, University of Rochester</h1>
     <div class="research-rows">
-      <article class="research-row" id="ml-for-dynamics">
+      <article class="research-row" id="ml-for-dynamics" style="--theme-accent: #FFB67A">
         <div class="visual">
-          <div class="bg-tint" style="background: radial-gradient(ellipse 110% 80% at 60% 30%, #1F1612 0%, #070A0D 70%)"></div>
-          <div class="art" data-visual="loss" data-stroke="#FFB67A" data-accent="#FFB67A" data-size="320"></div>
           <div class="tag" style="color: #FFB67A">ML for Dynamics</div>
+          <svg class="lab-visual" data-lab-visual="attractor" data-seed="7" aria-hidden="true"></svg>
         </div>
         <div>
           <h2>Learning of dynamics</h2>
@@ -87,11 +86,10 @@
         </div>
       </article>
 
-      <article class="research-row" id="physics-of-ai">
+      <article class="research-row" id="physics-of-ai" style="--theme-accent: #85FFC7">
         <div class="visual">
-          <div class="bg-tint" style="background: radial-gradient(ellipse 110% 80% at 30% 60%, #0E2018 0%, #070A0D 70%)"></div>
-          <div class="art" data-visual="rugged" data-stroke="#85FFC7" data-accent="#85FFC7" data-size="320"></div>
           <div class="tag" style="color: #85FFC7">Physics of AI</div>
+          <svg class="lab-visual" data-lab-visual="landscape" data-seed="21" aria-hidden="true"></svg>
         </div>
         <div>
           <h2>Dynamics of learning</h2>
@@ -120,11 +118,10 @@
         </div>
       </article>
 
-      <article class="research-row" id="networks-emergence">
+      <article class="research-row" id="networks-emergence" style="--theme-accent: #7ED6E0">
         <div class="visual">
-          <div class="bg-tint" style="background: radial-gradient(ellipse 110% 80% at 50% 50%, #0E1A1D 0%, #070A0D 70%)"></div>
-          <div class="art" data-visual="network" data-stroke="#EDEEEA" data-accent="#7ED6E0" data-size="340"></div>
           <div class="tag" style="color: #7ED6E0">Networks &amp; Emergence</div>
+          <svg class="lab-visual" data-lab-visual="network" data-seed="38" data-nodes="34" aria-hidden="true"></svg>
         </div>
         <div>
           <h2>Rule of emergence</h2>
@@ -190,7 +187,9 @@
   </footer>
 
   <script src="js/logo.js"></script>
-  <script src="js/visuals.js"></script>
+  <script src="js/rough.js"></script>
+  <script src="js/lab-visuals.js"></script>
+  <script src="js/draw-visuals.js"></script>
   <script src="js/site.js"></script>
 </body>
 </html>

@@ -372,8 +372,8 @@ main { flex: 1; }
 
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: clamp(28px, 3vw, 40px);
 }
 
 .theme-card {
@@ -382,91 +382,76 @@ main { flex: 1; }
   display: block;
 }
 
+/* Taller card with a soft radial glow of the theme accent behind the
+   hand-drawn (Rough.js) visual. The single --theme-accent var drives the
+   tint, border, and drop-shadow glow via color-mix. */
 .theme-card .visual {
-  aspect-ratio: 4 / 5;
-  background: var(--surface);
-  border: 1px solid var(--rule);
   position: relative;
+  aspect-ratio: 5 / 6;
   overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  background: radial-gradient(circle at 50% 46%,
+    color-mix(in srgb, var(--theme-accent, var(--accent)) 11%, transparent),
+    color-mix(in srgb, var(--theme-accent, var(--accent)) 2%, transparent) 42%,
+    transparent 66%);
   transition: border-color 0.25s;
 }
 
-.theme-card .visual .bg-tint { position: absolute; inset: 0; }
-
-.theme-card .art {
+/* Hand-drawn visual fills its .visual container (home cards + research rows),
+   with an accent-tinted glow. Driven by the container's --theme-accent. */
+.visual .lab-visual {
   position: absolute;
   inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: transform 0.6s cubic-bezier(.2,.7,.3,1);
+  width: 100%;
+  height: 100%;
+  filter:
+    drop-shadow(0 0 5px color-mix(in srgb, var(--theme-accent, var(--accent)) 42%, transparent))
+    drop-shadow(0 0 16px color-mix(in srgb, var(--theme-accent, var(--accent)) 15%, transparent));
 }
 
 .theme-card .tag {
   position: absolute;
-  top: 16px;
-  left: 16px;
+  top: 18px;
+  left: 20px;
+  z-index: 2;
   font-family: var(--mono);
-  font-size: 10.5px;
-  letter-spacing: 0.16em;
+  font-size: 11.5px;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-}
-
-.theme-card .arrow {
-  position: absolute;
-  bottom: 16px;
-  right: 16px;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: var(--bg);
-  border: 1px solid var(--rule);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 14px;
-  opacity: 0;
-  transform: translateY(6px);
-  transition: opacity 0.25s, transform 0.25s, border-color 0.25s;
+  color: var(--theme-accent, var(--accent));
 }
 
 .theme-card .body {
-  padding: 20px 4px 0;
+  padding: 24px 0 0;
 }
 
 .theme-card .body h3 {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 23px;
-  line-height: 1.18;
-  letter-spacing: -0.018em;
+  font-size: clamp(23px, 2vw, 30px);
+  line-height: 1.16;
+  letter-spacing: -0.01em;
   color: var(--ink);
-  margin: 0;
+  margin: 0 0 12px;
   transition: color 0.2s;
 }
 
 .theme-card .body p {
   font-family: var(--sans);
-  font-size: 14.5px;
-  line-height: 1.55;
+  font-size: 15px;
+  line-height: 1.5;
   color: var(--ink-dim);
-  margin: 12px 0 0;
+  margin: 0;
+  max-width: 42ch;
 }
 
+/* Subtle hover affordance (cards are links): brighten the border + accent
+   the title. The visual itself stays calm. */
 .theme-card:hover .visual,
-.theme-card:focus-visible .visual { border-color: var(--theme-accent, var(--accent)); }
-.theme-card:hover .art { transform: scale(1.04); }
-.theme-card:hover .arrow {
-  opacity: 1;
-  transform: translateY(0);
-  border-color: var(--theme-accent, var(--accent));
-  color: var(--theme-accent, var(--accent));
+.theme-card:focus-visible .visual {
+  border-color: color-mix(in srgb, var(--theme-accent, var(--accent)) 55%, rgba(255, 255, 255, 0.09));
 }
 .theme-card:hover .body h3 { color: var(--theme-accent, var(--accent)); }
-
-.theme-card .tag,
-.theme-card .arrow { color: var(--theme-accent, var(--accent)); }
 
 /* ============================================================
    RESEARCH PAGE
@@ -488,31 +473,23 @@ main { flex: 1; }
 
 .research-row .visual {
   aspect-ratio: 1 / 1;
-  background: var(--surface);
-  border: 1px solid var(--rule);
+  border: 1px solid rgba(255, 255, 255, 0.09);
   position: relative;
   overflow: hidden;
-}
-
-.research-row .visual .bg-tint,
-.research-row .visual .art {
-  position: absolute;
-  inset: 0;
-}
-
-.research-row .visual .art {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: radial-gradient(circle at 50% 46%,
+    color-mix(in srgb, var(--theme-accent, var(--accent)) 11%, transparent),
+    color-mix(in srgb, var(--theme-accent, var(--accent)) 2%, transparent) 42%,
+    transparent 66%);
 }
 
 .research-row .visual .tag {
   position: absolute;
-  top: 12px;
-  left: 12px;
+  top: 14px;
+  left: 16px;
+  z-index: 2;
   font-family: var(--mono);
   font-size: 10.5px;
-  letter-spacing: 0.16em;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
 }
 
@@ -1283,8 +1260,8 @@ button:focus-visible {
   [data-flow-field],
   .hero .vignette,
   .hero .topbottom,
-  .bg-tint,
-  .theme-card .arrow {
+  .theme-card .visual,
+  .research-row .visual {
     display: none !important;
   }
 
