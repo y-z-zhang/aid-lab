@@ -1034,6 +1034,23 @@ main { flex: 1; }
   margin: 0;
 }
 
+/* Inline links inside recruiting copy and FAQ answers — distinguishable
+   from body text (underlined, brighter), accent on hover. */
+.join-card p a,
+.faq-item .a a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--ink-dim);
+  text-underline-offset: 2px;
+  transition: color 0.15s, text-decoration-color 0.15s;
+}
+
+.join-card p a:hover,
+.faq-item .a a:hover {
+  color: var(--accent);
+  text-decoration-color: var(--accent);
+}
+
 .contact-strip {
   margin-top: 40px;
   padding: clamp(28px, 4vw, 44px);
