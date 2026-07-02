@@ -686,6 +686,41 @@ main { flex: 1; }
 .pi-card .pi-links .link-accent { color: var(--accent); }
 .pi-card .pi-links .link-dim { color: var(--ink-dim); }
 
+.members-block { margin-top: 28px; }
+
+.member-card {
+  padding: clamp(24px, 3vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-left: 2px solid var(--accent);
+  max-width: 560px;
+}
+
+.member-card h3 {
+  font-family: var(--sans);
+  font-weight: 500;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1.18;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+  margin: 0;
+}
+
+.member-card .member-role {
+  font-family: var(--sans);
+  font-size: 14px;
+  color: var(--ink-soft);
+  margin-top: 8px;
+}
+
+.member-card p {
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--ink-dim);
+  margin: 12px 0 0;
+}
+
 .recruiting {
   margin-top: 28px;
   padding: clamp(28px, 4vw, 44px);
