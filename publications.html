@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://lab.y-zhang.com/publications.html" />
   <meta property="og:url" content="https://lab.y-zhang.com/publications.html" />
@@ -37,117 +37,117 @@
     <nav class="links">
       <a href="research.html">Research</a>
       <a href="people.html">People</a>
-      <a class="active" href="publications.html">Publications</a>
+      <a class="active" aria-current="page" href="publications.html">Publications</a>
       <a href="news.html">News</a>
       <a href="join.html">Join</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="mobile-menu" id="mobile-menu">
       <a href="research.html">Research</a>
       <a href="people.html">People</a>
-      <a class="active" href="publications.html">Publications</a>
+      <a class="active" aria-current="page" href="publications.html">Publications</a>
       <a href="news.html">News</a>
       <a href="join.html">Join</a>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <h1 class="sr-only">Publications — Yuanzhao Zhang, AID Lab</h1>
     <section class="pubs-section">
-      <div class="pubs-filter">
-        <button class="active" data-tag="all">All</button>
-        <button data-tag="ml-dyn">ML for Dynamics</button>
-        <button data-tag="physics-of-ai">Physics of AI</button>
-        <button data-tag="sync">Synchronization</button>
-        <button data-tag="hypergraphs">Hypergraphs</button>
-        <button data-tag="basins">Basins</button>
-        <button data-tag="soft-matter">Soft Matter</button>
-        <button data-tag="math-bio">Mathematical Biology</button>
-        <span class="count">41 papers</span>
+      <div class="pubs-filter" role="group" aria-label="Filter publications by topic">
+        <button type="button" class="active" aria-pressed="true" data-tag="all">All</button>
+        <button type="button" aria-pressed="false" data-tag="ml-dyn">ML for Dynamics</button>
+        <button type="button" aria-pressed="false" data-tag="physics-of-ai">Physics of AI</button>
+        <button type="button" aria-pressed="false" data-tag="sync">Synchronization</button>
+        <button type="button" aria-pressed="false" data-tag="hypergraphs">Hypergraphs</button>
+        <button type="button" aria-pressed="false" data-tag="basins">Basins</button>
+        <button type="button" aria-pressed="false" data-tag="soft-matter">Soft Matter</button>
+        <button type="button" aria-pressed="false" data-tag="math-bio">Mathematical Biology</button>
+        <span class="count" aria-live="polite">41 papers</span>
       </div>
 
-      <div class="pubs-year" data-year="preprints">
+      <div class="pubs-year" id="preprints" data-year="preprints">
         <div class="row">
-          <div class="year-label" style="font-size: 18px; line-height: 1.25;">Preprints</div>
+          <h2 class="year-label" style="font-size: 18px; line-height: 1.25;">Preprints</h2>
           <div>
-            <div class="pub-entry" data-tags="sync,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="symmetry-based-selection-rules-for-higher-order-interactions" data-tags="sync,hypergraphs" data-visible="1">
               <div>
                 <h3>Symmetry-based selection rules for higher-order interactions in coupled oscillators</h3>
                 <div class="authors">I. León, R. Muolo, <strong>Y. Zhang</strong>, M. Lucas</div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2606.04904">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2606.04904">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn" data-visible="1">
+            <div class="pub-entry" id="scaling-world-model-reinforcement-learning-through-diffusion-policy" data-tags="ml-dyn" data-visible="1">
               <div>
                 <h3>Scaling world-model reinforcement learning through diffusion policy optimization</h3>
                 <div class="authors">X. Cheng, W. Yuan, Z. Mu, <strong>Y. Zhang</strong>, Y. Yang, H. Wang, Z. Sun, C. Liu</div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2605.26282">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2605.26282">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="" data-visible="1">
+            <div class="pub-entry" id="anomalous-scaling-in-redirection-networks" data-tags="sync" data-visible="1">
               <div>
                 <h3>Anomalous scaling in redirection networks</h3>
                 <div class="authors">H. Hartle, P. L. Krapivsky, S. Redner, <strong>Y. Zhang</strong></div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2604.01540">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2604.01540">arXiv <span aria-hidden="true">↗</span></a>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="data-driven-control-of-hypergraphs-leveraging-this-to" data-tags="ml-dyn,hypergraphs" data-visible="1">
               <div>
                 <h3>Data-driven control of hypergraphs: Leveraging THIS to damp noise in diffusive hypergraphs</h3>
                 <div class="authors">R. Delabays, <strong>Y. Zhang</strong>, F. Dörfler, G. De Pasquale</div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2511.08647">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2511.08647">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="tempological-control-of-network-dynamics" data-tags="sync" data-visible="1">
               <div>
                 <h3>Tempological control of network dynamics</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, K. M. Rock, S. P. Cornelius</div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.10926">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.10926">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="mixed-higher-order-coupling-stabilizes-new-states" data-tags="sync,hypergraphs" data-visible="1">
               <div>
                 <h3>Mixed higher-order coupling stabilizes new states</h3>
                 <div class="authors">P. S. Skardal, F. Battiston, M. Lucas, M. S. Mizuhara, G. Petri, <strong>Y. Zhang</strong></div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.09387">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.09387">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="cluster-synchronization-in-directed-networks-generate-hierarchies" data-tags="sync" data-visible="1">
               <div>
                 <h3>Cluster synchronization in directed networks generate hierarchies</h3>
                 <div class="authors">F. M. Brady, <strong>Y. Zhang</strong>, A. E. Motter</div>
                 <div class="venue">Preprint</div>
               </div>
               <div class="actions">
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2106.13220">arXiv ↗</a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2106.13220">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
@@ -155,70 +155,70 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2026">
+      <div class="pubs-year" id="y2026" data-year="2026">
         <div class="row">
-          <div class="year-label">2026</div>
+          <h2 class="year-label">2026</h2>
           <div>
-            <div class="pub-entry" data-tags="ml-dyn" data-visible="1">
+            <div class="pub-entry" id="signature-of-glassy-dynamics-in-dynamic-mode-decompositions" data-tags="ml-dyn" data-visible="1">
               <div>
                 <h3>Signature of glassy dynamics in dynamic mode decompositions</h3>
                 <div class="authors">Z. G. Nicolaou, H. Cho, <strong>Y. Zhang</strong>, J. N. Kutz, S. L. Brunton</div>
                 <div class="venue">Physical Review E 113, L053301</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="https://arxiv.org/pdf/2502.10918">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1103/ng8q-ttyb">DOI ↗</a>
+                <a class="pub-link" href="https://arxiv.org/pdf/2502.10918">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1103/ng8q-ttyb">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="collective-dynamics-on-higher-order-networks" data-tags="sync,hypergraphs" data-visible="1">
               <div>
                 <h3>Collective dynamics on higher-order networks</h3>
                 <div class="authors">F. Battiston, C. Bick, M. Lucas, A. P. Millán, P. S. Skardal, <strong>Y. Zhang</strong></div>
                 <div class="venue">Nature Reviews Physics 8, 146–159</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2026-collective-dynamics-hon.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.05253">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2026-collective-dynamics-hon.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.05253">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn,physics-of-ai" data-visible="1">
+            <div class="pub-entry" id="context-parroting-a-simple-but-tough-to-beat" data-tags="ml-dyn,physics-of-ai" data-visible="1">
               <div>
                 <h3>Context parroting: A simple but tough-to-beat baseline for foundation models in scientific machine learning</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, W. Gilpin</div>
                 <div class="venue">ICLR 2026</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2026-context-parroting.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2505.11349">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2026-context-parroting.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2505.11349">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Physics of AI</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn,physics-of-ai" data-visible="1">
+            <div class="pub-entry" id="information-shapes-koopman-representation" data-tags="ml-dyn,physics-of-ai" data-visible="1">
               <div>
                 <h3>Information shapes Koopman representation</h3>
                 <div class="authors">X. Cheng, W. Yuan, Y. Yang, <strong>Y. Zhang</strong>, S. Cheng, Y. He, Z. Sun</div>
                 <div class="venue">ICLR 2026</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2026-information-shapes-koopman.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.13025">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2026-information-shapes-koopman.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2510.13025">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Physics of AI</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="math-bio" data-visible="1">
+            <div class="pub-entry" id="ignition-criteria-for-trigger-waves-in-cell-signaling" data-tags="math-bio" data-visible="1">
               <div>
                 <h3>Ignition criteria for trigger waves in cell signaling</h3>
                 <div class="authors">B. H. Schlomann, W. S. DeWitt, <strong>Y. Zhang</strong>, K. Shah</div>
                 <div class="venue">PRX Life 4, 023003</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2026-ignition-criteria.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2508.16810">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2026-ignition-criteria.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2508.16810">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Mathematical Biology</span>
               </div>
             </div>
@@ -226,71 +226,71 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2025">
+      <div class="pubs-year" id="y2025" data-year="2025">
         <div class="row">
-          <div class="year-label">2025</div>
+          <h2 class="year-label">2025</h2>
           <div>
-            <div class="pub-entry" data-tags="sync,basins" data-visible="1">
+            <div class="pub-entry" id="size-of-the-sync-basin-resolved" data-tags="sync,basins" data-visible="1">
               <div>
                 <h3>Size of the sync basin resolved</h3>
                 <div class="authors">P. Groisman, C. De Vita, J. F. Bonder, <strong>Y. Zhang</strong></div>
                 <div class="venue">Physical Review E 112, L052201</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2025-sync-basin-resolved.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2506.03419">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2025-sync-basin-resolved.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2506.03419">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Basins</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn,physics-of-ai" data-visible="1">
+            <div class="pub-entry" id="learning-beyond-experience-generalizing-to-unseen-state-space" data-tags="ml-dyn,physics-of-ai" data-visible="1">
               <div>
                 <h3>Learning beyond experience: Generalizing to unseen state space with reservoir computing</h3>
                 <div class="authors">D. A. Norton, <strong>Y. Zhang</strong>, M. Girvan</div>
                 <div class="venue">Chaos 35, 103146</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2025-learning-beyond-experience.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2506.05292">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2025-learning-beyond-experience.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2506.05292">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Physics of AI</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn,physics-of-ai" data-visible="1">
+            <div class="pub-entry" id="how-more-data-can-hurt-instability-and-regularization" data-tags="ml-dyn,physics-of-ai" data-visible="1">
               <div>
                 <h3>How more data can hurt: Instability and regularization in next-generation reservoir computing</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, E. R. dos Santos, H. Zhang, S. P. Cornelius</div>
                 <div class="venue">Chaos 35, 073102</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2025-how-more-data-can-hurt.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2407.08641">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2025-how-more-data-can-hurt.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2407.08641">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Physics of AI</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="hypergraph-reconstruction-from-dynamics" data-tags="ml-dyn,hypergraphs" data-visible="1">
               <div>
                 <h3>Hypergraph reconstruction from dynamics</h3>
                 <div class="authors">R. Delabays, G. De Pasquale, F. Dörfler, <strong>Y. Zhang</strong></div>
                 <div class="venue">Nature Communications 16, 2691</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2025-hypergraph-reconstruction.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2402.00078">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2025-hypergraph-reconstruction.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2402.00078">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="ml-dyn" data-visible="1">
+            <div class="pub-entry" id="zero-shot-forecasting-of-chaotic-systems" data-tags="ml-dyn" data-visible="1">
               <div>
                 <h3>Zero-shot forecasting of chaotic systems</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, W. Gilpin</div>
                 <div class="venue">ICLR 2025</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2025-zero-shot-forecasting.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2409.15771">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2025-zero-shot-forecasting.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2409.15771">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
               </div>
             </div>
@@ -298,19 +298,19 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2024">
+      <div class="pubs-year" id="y2024" data-year="2024">
         <div class="row">
-          <div class="year-label">2024</div>
+          <h2 class="year-label">2024</h2>
           <div>
-            <div class="pub-entry" data-tags="sync,hypergraphs,basins" data-visible="1">
+            <div class="pub-entry" id="deeper-but-smaller-higher-order-interactions-increase-linear" data-tags="sync,hypergraphs,basins" data-visible="1">
               <div>
                 <h3>Deeper but smaller: Higher-order interactions increase linear stability but shrink basins</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, P. S. Skardal, F. Battiston, G. Petri, M. Lucas</div>
                 <div class="venue">Science Advances 10, ado8049</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2024-deeper-but-smaller.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2309.16581">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2024-deeper-but-smaller.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2309.16581">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Hypergraphs</span>
                 <span class="tagpill">Basins</span>
@@ -320,58 +320,58 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2023">
+      <div class="pubs-year" id="y2023" data-year="2023">
         <div class="row">
-          <div class="year-label">2023</div>
+          <h2 class="year-label">2023</h2>
           <div>
-            <div class="pub-entry" data-tags="ml-dyn,physics-of-ai" data-visible="1">
+            <div class="pub-entry" id="catch-22s-of-reservoir-computing" data-tags="ml-dyn,physics-of-ai" data-visible="1">
               <div>
                 <h3>Catch-22s of reservoir computing</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, S. P. Cornelius</div>
                 <div class="venue">Physical Review Research 5, 033213</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2023-catch22s-reservoir-computing.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2210.10211">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2023-catch22s-reservoir-computing.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2210.10211">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">ML for Dynamics</span>
                 <span class="tagpill">Physics of AI</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="higher-order-interactions-shape-collective-dynamics-differently-in" data-tags="sync,hypergraphs" data-visible="1">
               <div>
                 <h3>Higher-order interactions shape collective dynamics differently in hypergraphs and simplicial complexes</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, M. Lucas, F. Battiston</div>
                 <div class="venue">Nature Communications 14, 1605</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2023-higher-order-collective-dynamics.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2203.03060">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2023-higher-order-collective-dynamics.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2203.03060">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync,ml-dyn" data-visible="1">
+            <div class="pub-entry" id="optimal-synchronization-in-pulse-coupled-oscillator-networks-using" data-tags="sync,ml-dyn" data-visible="1">
               <div>
                 <h3>Optimal synchronization in pulse-coupled oscillator networks using reinforcement learning</h3>
                 <div class="authors">Z. Chen, T. Anglea, <strong>Y. Zhang</strong>, Y. Wang</div>
                 <div class="venue">PNAS Nexus 2, pgad102</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2023-optimal-sync-rl.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://academic.oup.com/pnasnexus/article/2/4/pgad102/7095861">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2023-optimal-sync-rl.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://academic.oup.com/pnasnexus/article/2/4/pgad102/7095861">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">ML for Dynamics</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="math-bio" data-visible="1">
+            <div class="pub-entry" id="a-minimal-model-of-peripheral-clocks-reveals-differential" data-tags="math-bio" data-visible="1">
               <div>
                 <h3>A minimal model of peripheral clocks reveals differential circadian re-entrainment in aging</h3>
                 <div class="authors">Y. Huang, <strong>Y. Zhang</strong>, R. Braun</div>
                 <div class="venue">Chaos 33, 093104</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2023-circadian-clocks.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2212.13579">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2023-circadian-clocks.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2212.13579">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Mathematical Biology</span>
               </div>
             </div>
@@ -379,92 +379,92 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2021">
+      <div class="pubs-year" id="y2021" data-year="2021">
         <div class="row">
-          <div class="year-label">2021</div>
+          <h2 class="year-label">2021</h2>
           <div>
-            <div class="pub-entry" data-tags="basins" data-visible="1">
+            <div class="pub-entry" id="basins-with-tentacles" data-tags="basins" data-visible="1">
               <div>
                 <h3>Basins with tentacles</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, S. H. Strogatz</div>
                 <div class="venue">Physical Review Letters 127, 194101</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-basins-with-tentacles.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2106.05709">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2021-basins-with-tentacles.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2106.05709">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Basins</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync,hypergraphs" data-visible="1">
+            <div class="pub-entry" id="unified-treatment-of-synchronization-patterns-in-generalized-networks" data-tags="sync,hypergraphs" data-visible="1">
               <div>
                 <h3>Unified treatment of synchronization patterns in generalized networks with higher-order, multilayer, and temporal interactions</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, V. Latora, A. E. Motter</div>
                 <div class="venue">Communications Physics 4, 195</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-unified-treatment-sync.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2010.00613">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2021-unified-treatment-sync.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2010.00613">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
                 <span class="tagpill">Hypergraphs</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="designing-temporal-networks-that-synchronize-under-resource-constraints" data-tags="sync" data-visible="1">
               <div>
                 <h3>Designing temporal networks that synchronize under resource constraints</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, S. H. Strogatz</div>
                 <div class="venue">Nature Communications 12, 3273</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-designing-temporal-networks.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2101.02721">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2021-designing-temporal-networks.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2101.02721">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="random-heterogeneity-outperforms-design-in-network-synchronization" data-tags="sync" data-visible="1">
               <div>
                 <h3>Random heterogeneity outperforms design in network synchronization</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, J. L. Ocampo-Espindola, I. Z. Kiss, A. E. Motter</div>
                 <div class="venue">PNAS 118, e2024299118</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-random-heterogeneity.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2105.11476">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2021-random-heterogeneity.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2105.11476">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="synchronizing-chaos-with-imperfections" data-tags="sync" data-visible="1">
               <div>
                 <h3>Synchronizing chaos with imperfections</h3>
                 <div class="authors">Y. Sugitani, <strong>Y. Zhang</strong>, A. E. Motter</div>
                 <div class="venue">Physical Review Letters 126, 164101</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-synchronizing-chaos.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2104.13376">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2021-synchronizing-chaos.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2104.13376">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="mechanism-for-strong-chimeras" data-tags="sync" data-visible="1">
               <div>
                 <h3>Mechanism for strong chimeras</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, A. E. Motter</div>
                 <div class="venue">Physical Review Letters 126, 094101</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-mechanism-strong-chimeras.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2101.12230">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2021-mechanism-strong-chimeras.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2101.12230">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="soft-matter,math-bio" data-visible="1">
+            <div class="pub-entry" id="molecular-mechanism-of-secreted-amyloid-precursor-protein-in" data-tags="soft-matter,math-bio" data-visible="1">
               <div>
                 <h3>Molecular mechanism of secreted Amyloid-β precursor protein in binding and modulating GABA<sub>B</sub>R1a</h3>
                 <div class="authors">M. Feng, Y. Song, S. H. Chen, <strong>Y. Zhang</strong>, R. Zhou</div>
                 <div class="venue">Chemical Science 12, 6107–6116</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2021-amyloid-beta.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1039/D0SC06946A">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2021-amyloid-beta.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1039/D0SC06946A">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
                 <span class="tagpill">Mathematical Biology</span>
               </div>
@@ -473,43 +473,43 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2020">
+      <div class="pubs-year" id="y2020" data-year="2020">
         <div class="row">
-          <div class="year-label">2020</div>
+          <h2 class="year-label">2020</h2>
           <div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="symmetry-independent-stability-analysis-of-synchronization-patterns" data-tags="sync" data-visible="1">
               <div>
                 <h3>Symmetry-independent stability analysis of synchronization patterns</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, A. E. Motter</div>
                 <div class="venue">SIAM Review 62, 817–836</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2020-symmetry-independent-stability.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/2003.05461">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2020-symmetry-independent-stability.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/2003.05461">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="critical-switching-in-globally-attractive-chimeras" data-tags="sync" data-visible="1">
               <div>
                 <h3>Critical switching in globally attractive chimeras</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, Z. G. Nicolaou, J. D. Hart, R. Roy, A. E. Motter</div>
                 <div class="venue">Physical Review X 10, 011044</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2020-critical-switching-chimeras.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/1911.07871">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2020-critical-switching-chimeras.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/1911.07871">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="soft-matter" data-visible="1">
+            <div class="pub-entry" id="zipper-like-unfolding-of-dsdna-caused-by-graphene" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>Zipper-like unfolding of dsDNA caused by graphene wrinkles</h3>
                 <div class="authors">B. Li, <strong>Y. Zhang</strong>, X. Meng, R. Zhou</div>
                 <div class="venue">Journal of Physical Chemistry C 124, 3332–3340</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2020-dsdna-graphene-wrinkles.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1021/acs.jpcc.9b08778">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2020-dsdna-graphene-wrinkles.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1021/acs.jpcc.9b08778">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
               </div>
             </div>
@@ -517,19 +517,19 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2019">
+      <div class="pubs-year" id="y2019" data-year="2019">
         <div class="row">
-          <div class="year-label">2019</div>
+          <h2 class="year-label">2019</h2>
           <div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="topological-control-of-synchronization-patterns-trading-symmetry-for" data-tags="sync" data-visible="1">
               <div>
                 <h3>Topological control of synchronization patterns: Trading symmetry for stability</h3>
                 <div class="authors">J. D. Hart, <strong>Y. Zhang</strong>, R. Roy, A. E. Motter</div>
                 <div class="venue">Physical Review Letters 122, 058301</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2019-topological-control.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/1902.03255">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2019-topological-control.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/1902.03255">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
@@ -537,19 +537,19 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2018">
+      <div class="pubs-year" id="y2018" data-year="2018">
         <div class="row">
-          <div class="year-label">2018</div>
+          <h2 class="year-label">2018</h2>
           <div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="identical-synchronization-of-nonidentical-oscillators-when-only-birds" data-tags="sync" data-visible="1">
               <div>
                 <h3>Identical synchronization of nonidentical oscillators: When only birds of different feathers flock together</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, A. E. Motter</div>
                 <div class="venue">Nonlinearity 31, R1–R23</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2018-identical-sync-nonidentical.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/1712.03245">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2018-identical-sync-nonidentical.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/1712.03245">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
@@ -557,31 +557,31 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2017">
+      <div class="pubs-year" id="y2017" data-year="2017">
         <div class="row">
-          <div class="year-label">2017</div>
+          <h2 class="year-label">2017</h2>
           <div>
-            <div class="pub-entry" data-tags="sync" data-visible="1">
+            <div class="pub-entry" id="asymmetry-induced-synchronization-in-oscillator-networks" data-tags="sync" data-visible="1">
               <div>
                 <h3>Asymmetry-induced synchronization in oscillator networks</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, T. Nishikawa, A. E. Motter</div>
                 <div class="venue">Physical Review E 95, 062215</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2017-asymmetry-induced-sync.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/1705.07907">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2017-asymmetry-induced-sync.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/1705.07907">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Synchronization</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="soft-matter" data-visible="1">
+            <div class="pub-entry" id="graphene-induced-pore-formation-on-cell-membranes" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>Graphene-induced pore formation on cell membranes</h3>
                 <div class="authors">G. Duan, <strong>Y. Zhang</strong>, B. Luan, J. K. Weber, R. W. Zhou, Z. Yang, L. Zhao, J. Xu, J. Luo, R. Zhou</div>
                 <div class="venue">Scientific Reports 7, 42767</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2017-graphene-pore-formation.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1038/srep42767">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2017-graphene-pore-formation.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1038/srep42767">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
               </div>
             </div>
@@ -589,62 +589,62 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2016">
+      <div class="pubs-year" id="y2016" data-year="2016">
         <div class="row">
-          <div class="year-label">2016</div>
+          <h2 class="year-label">2016</h2>
           <div>
-            <div class="pub-entry" data-tags="soft-matter" data-visible="1">
+            <div class="pub-entry" id="folding-and-stabilization-of-native-sequence-reversed-proteins" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>Folding and stabilization of native-sequence-reversed proteins</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, J. K. Weber, R. Zhou</div>
                 <div class="venue">Scientific Reports 6, 25138</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2016-reversed-proteins.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/1606.05373">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2016-reversed-proteins.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/1606.05373">arXiv <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="soft-matter" data-visible="1">
+            <div class="pub-entry" id="dna-translocation-through-single-layer-boron-nitride-nanopores" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>DNA translocation through single-layer boron nitride nanopores</h3>
                 <div class="authors">Z. Gu, <strong>Y. Zhang</strong>, B. Luan, R. Zhou</div>
                 <div class="venue">Soft Matter 12, 817</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2016-dna-bn-nanopores.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1039/C5SM02197A">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2016-dna-bn-nanopores.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1039/C5SM02197A">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
               </div>
             </div>
-            <div class="pub-entry" data-tags="" data-visible="1">
+            <div class="pub-entry" id="stirring-by-multiple-cylinders-in-potential-flow" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>Stirring by multiple cylinders in potential flow</h3>
                 <div class="authors">Z. Lin, <strong>Y. Zhang</strong></div>
                 <div class="venue">Journal of Fluid Mechanics 794, 552</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2016-stirring-cylinders.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://arxiv.org/abs/1411.4361">arXiv ↗</a>
+                <a class="pub-link" href="assets/papers/2016-stirring-cylinders.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://arxiv.org/abs/1411.4361">arXiv <span aria-hidden="true">↗</span></a>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2014">
+      <div class="pubs-year" id="y2014" data-year="2014">
         <div class="row">
-          <div class="year-label">2014</div>
+          <h2 class="year-label">2014</h2>
           <div>
-            <div class="pub-entry" data-tags="soft-matter" data-visible="1">
+            <div class="pub-entry" id="bio-mimicking-of-proline-rich-motif-applied-to" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>Bio-mimicking of proline-rich motif applied to carbon nanotube reveals unexpected subtleties underlying nanoparticle functionalization</h3>
                 <div class="authors"><strong>Y. Zhang</strong>, C. A. Jimenez-Cruz, J. Wang, Z. Yang, B. Zhou, R. Zhou</div>
                 <div class="venue">Scientific Reports 4, 7229</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2014-proline-rich-cnt.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1038/srep07229">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2014-proline-rich-cnt.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1038/srep07229">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
               </div>
             </div>
@@ -652,19 +652,19 @@
         </div>
       </div>
 
-      <div class="pubs-year" data-year="2013">
+      <div class="pubs-year" id="y2013" data-year="2013">
         <div class="row">
-          <div class="year-label">2013</div>
+          <h2 class="year-label">2013</h2>
           <div>
-            <div class="pub-entry" data-tags="soft-matter" data-visible="1">
+            <div class="pub-entry" id="capability-of-charge-signal-conversion-and-transmission-by" data-tags="soft-matter" data-visible="1">
               <div>
                 <h3>Capability of charge signal conversion and transmission by water chains confined inside Y-shaped carbon nanotubes</h3>
                 <div class="authors">Y. Tu, H. Lu, <strong>Y. Zhang</strong>, T. Huynh, R. Zhou</div>
                 <div class="venue">Journal of Chemical Physics 138, 015104</div>
               </div>
               <div class="actions">
-                <a class="pub-link" href="assets/papers/2013-cnt-water-charge.pdf">PDF ↗</a>
-                <a class="pub-link-ghost" href="https://doi.org/10.1063/1.4773221">DOI ↗</a>
+                <a class="pub-link" href="assets/papers/2013-cnt-water-charge.pdf">PDF <span aria-hidden="true">↗</span></a>
+                <a class="pub-link-ghost" href="https://doi.org/10.1063/1.4773221">DOI <span aria-hidden="true">↗</span></a>
                 <span class="tagpill">Soft Matter</span>
               </div>
             </div>
@@ -677,7 +677,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="brand-row">
+        <div class="brand-row" role="img" aria-label="AID Lab">
           <span data-logo-mark data-size="26"></span>
           <span data-wordmark data-size="0.95">AID Lab</span>
         </div>
@@ -691,9 +691,9 @@
       <div class="footer-col">
         <div class="head">Connect</div>
         <div class="list">
-          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar ↗</a>
-          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv ↗</a>
-          <a href="https://github.com/y-z-zhang">GitHub ↗</a>
+          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="footer-col">
@@ -701,7 +701,7 @@
         <div class="list">
           <span style="color: var(--ink)">Yuanzhao Zhang</span>
           <span>Simons Empire Assistant Professor</span>
-          <a class="accent" href="https://y-zhang.com">y-zhang.com ↗</a>
+          <a class="accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

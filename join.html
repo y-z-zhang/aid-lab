@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://lab.y-zhang.com/join.html" />
   <meta property="og:url" content="https://lab.y-zhang.com/join.html" />
@@ -46,9 +46,9 @@
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
-      <a class="active" href="join.html">Join</a>
+      <a class="active" aria-current="page" href="join.html">Join</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="mobile-menu" id="mobile-menu">
@@ -56,14 +56,14 @@
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
-      <a class="active" href="join.html">Join</a>
+      <a class="active" aria-current="page" href="join.html">Join</a>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <h1 class="sr-only">Join the AID Lab — open positions for Ph.D. students and postdocs</h1>
     <section class="page-header">
-      <div class="kicker">→ Recruiting · Fall 2027</div>
+      <div class="kicker"><span aria-hidden="true">→</span> Recruiting · Fall 2027</div>
       <p class="subtitle">We are looking for PhD students and postdocs with a background in physics, applied math, complex systems, or machine learning. As an interdisciplinary group, we highly value curiosity, independence, and a willingness to read broadly and learn from others not in your immediate field.</p>
     </section>
 
@@ -71,17 +71,17 @@
       <div class="join-cards">
         <div class="join-card amber">
           <div class="ck">PhD students</div>
-          <h3>Apply to UR Physics by December 15.</h3>
+          <h2>Apply to UR Physics by December 15.</h2>
           <p>Apply to the University of Rochester <a href="https://www.pas.rochester.edu/">Department of Physics &amp; Astronomy</a> Ph.D. program through the <a href="https://apply.grad.rochester.edu/register/PhysicsAstronomy">online application</a> — the deadline is December 15. Name the AID Lab in your statement of purpose, and feel free to email Yuanzhao first with a paragraph about what you're curious about.</p>
         </div>
         <div class="join-card green">
           <div class="ck">Postdocs</div>
-          <h3>Open to applications now.</h3>
+          <h2>Open to applications now.</h2>
           <p>Yuanzhao welcomes postdoc inquiries on a rolling basis. Email him a short note on what you'd like to work on — a CV is welcome but not required. If you're applying for your own fellowship, he's glad to host and help shape the proposal.</p>
         </div>
         <div class="join-card cyan">
           <div class="ck">UR undergraduates</div>
-          <h3>Independent study and summer research.</h3>
+          <h2>Independent study and summer research.</h2>
           <p>Enrolled UR undergrads can join for independent-study credit during the year. For the summer, the university funds research through the <a href="https://www.rochester.edu/college/ugresearch/funding/discover-grant/index.html">Schwartz Discover Grant</a> and the department's <a href="https://www.pas.rochester.edu/undergraduate/research.html">research opportunities</a>.</p>
         </div>
       </div>
@@ -97,37 +97,37 @@
       </div>
 
       <div class="faq-block">
-        <div class="label">FAQ</div>
+        <h2 class="label">FAQ</h2>
         <div class="faq-item">
-          <button type="button" aria-controls="faq-a1">
+          <button type="button" aria-controls="faq-a1" aria-expanded="false">
             <span class="q">What background should I have?</span>
             <span class="plus" aria-hidden="true">+</span>
           </button>
           <p class="a" id="faq-a1">Physics, applied math, computer science, or a related field. We care more about curiosity and a willingness to read across disciplines than about a specific toolkit.</p>
         </div>
         <div class="faq-item">
-          <button type="button" aria-controls="faq-a2">
+          <button type="button" aria-controls="faq-a2" aria-expanded="false">
             <span class="q">Do I need machine-learning experience?</span>
             <span class="plus" aria-hidden="true">+</span>
           </button>
           <p class="a" id="faq-a2">No — we will teach you what you need. Likewise, you do not need a deep dynamics background. You do need to be comfortable being uncomfortable: every project in the lab sits on at least one boundary.</p>
         </div>
         <div class="faq-item">
-          <button type="button" aria-controls="faq-a3">
+          <button type="button" aria-controls="faq-a3" aria-expanded="false">
             <span class="q">Can I email you before applying?</span>
             <span class="plus" aria-hidden="true">+</span>
           </button>
           <p class="a" id="faq-a3">Yes, please do — especially if you want to ask whether our interests align. A short paragraph about what you have been thinking about is more useful than a formal CV.</p>
         </div>
         <div class="faq-item">
-          <button type="button" aria-controls="faq-a4">
+          <button type="button" aria-controls="faq-a4" aria-expanded="false">
             <span class="q">When is the deadline, and do I need the GRE?</span>
             <span class="plus" aria-hidden="true">+</span>
           </button>
           <p class="a" id="faq-a4">Applications are due December 15 for the following fall. The GRE — both the general test and the Physics subject test — is optional; the committee reads the whole application rather than leaning on scores. If the $70 application fee is a hardship, the department can offer a fee waiver.</p>
         </div>
         <div class="faq-item">
-          <button type="button" aria-controls="faq-a5">
+          <button type="button" aria-controls="faq-a5" aria-expanded="false">
             <span class="q">Are there funded undergraduate research positions?</span>
             <span class="plus" aria-hidden="true">+</span>
           </button>
@@ -141,7 +141,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="brand-row">
+        <div class="brand-row" role="img" aria-label="AID Lab">
           <span data-logo-mark data-size="26"></span>
           <span data-wordmark data-size="0.95">AID Lab</span>
         </div>
@@ -155,9 +155,9 @@
       <div class="footer-col">
         <div class="head">Connect</div>
         <div class="list">
-          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar ↗</a>
-          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv ↗</a>
-          <a href="https://github.com/y-z-zhang">GitHub ↗</a>
+          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="footer-col">
@@ -165,7 +165,7 @@
         <div class="list">
           <span style="color: var(--ink)">Yuanzhao Zhang</span>
           <span>Simons Empire Assistant Professor</span>
-          <a class="accent" href="https://y-zhang.com">y-zhang.com ↗</a>
+          <a class="accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

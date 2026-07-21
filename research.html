@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://lab.y-zhang.com/research.html" />
   <meta property="og:url" content="https://lab.y-zhang.com/research.html" />
@@ -35,17 +35,17 @@
       <span data-wordmark data-size="1.05">AID Lab</span>
     </a>
     <nav class="links">
-      <a class="active" href="research.html">Research</a>
+      <a class="active" aria-current="page" href="research.html">Research</a>
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
       <a href="join.html">Join</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="mobile-menu" id="mobile-menu">
-      <a class="active" href="research.html">Research</a>
+      <a class="active" aria-current="page" href="research.html">Research</a>
       <a href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
@@ -53,12 +53,12 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <h1 class="sr-only">Research — AID Lab, University of Rochester</h1>
     <div class="research-rows">
       <article class="research-row" id="ml-for-dynamics" style="--theme-accent: #FFB67A">
         <div class="visual">
-          <div class="tag" style="color: #FFB67A">ML for Dynamics</div>
+          <div class="tag">ML for Dynamics</div>
           <svg class="lab-visual" data-lab-visual="attractor" data-seed="7" aria-hidden="true"></svg>
         </div>
         <div>
@@ -72,17 +72,17 @@
           <div>
             <div class="col-label">Open questions</div>
             <ul class="questions">
-              <li><span class="arr" style="color:#FFB67A">→</span><span>Can a foundation model forecast a dynamical system it has never seen?</span></li>
-              <li><span class="arr" style="color:#FFB67A">→</span><span>When does a black-box predictor outperform a structured one — and vice versa?</span></li>
-              <li><span class="arr" style="color:#FFB67A">→</span><span>How can we close the generalization gap of digital twins?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>Can a foundation model forecast a dynamical system it has never seen?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>When does a black-box predictor outperform a structured one — and vice versa?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>How can we close the generalization gap of digital twins?</span></li>
             </ul>
           </div>
           <div>
             <div class="col-label">Selected papers</div>
             <ul class="papers">
-              <li><span class="year" style="color:#FFB67A">2026</span><a href="publications.html">Context parroting: A simple but tough-to-beat baseline for foundation models in scientific ML<div class="venue">ICLR 2026</div></a></li>
-              <li><span class="year" style="color:#FFB67A">2025</span><a href="publications.html">Zero-shot forecasting of chaotic systems<div class="venue">ICLR 2025</div></a></li>
-              <li><span class="year" style="color:#FFB67A">2023</span><a href="publications.html">Catch-22s of reservoir computing<div class="venue">Physical Review Research</div></a></li>
+              <li><span class="year">2026</span><a href="publications.html#context-parroting-a-simple-but-tough-to-beat">Context parroting: A simple but tough-to-beat baseline for foundation models in scientific ML<div class="venue">ICLR 2026</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#zero-shot-forecasting-of-chaotic-systems">Zero-shot forecasting of chaotic systems<div class="venue">ICLR 2025</div></a></li>
+              <li><span class="year">2023</span><a href="publications.html#catch-22s-of-reservoir-computing">Catch-22s of reservoir computing<div class="venue">Physical Review Research</div></a></li>
             </ul>
           </div>
         </div>
@@ -90,7 +90,7 @@
 
       <article class="research-row" id="physics-of-ai" style="--theme-accent: #85FFC7">
         <div class="visual">
-          <div class="tag" style="color: #85FFC7">Physics of AI</div>
+          <div class="tag">Physics of AI</div>
           <svg class="lab-visual" data-lab-visual="landscape" data-seed="21" aria-hidden="true"></svg>
         </div>
         <div>
@@ -104,17 +104,17 @@
           <div>
             <div class="col-label">Open questions</div>
             <ul class="questions">
-              <li><span class="arr" style="color:#85FFC7">→</span><span>What does the geometry of a trained representation reveal about the task?</span></li>
-              <li><span class="arr" style="color:#85FFC7">→</span><span>Why does more data sometimes destabilize a learned model?</span></li>
-              <li><span class="arr" style="color:#85FFC7">→</span><span>Can dynamical-systems language explain phase transitions in learning?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>What does the geometry of a trained representation reveal about the task?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>Why does more data sometimes destabilize a learned model?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>Can dynamical-systems language explain phase transitions in learning?</span></li>
             </ul>
           </div>
           <div>
             <div class="col-label">Selected papers</div>
             <ul class="papers">
-              <li><span class="year" style="color:#85FFC7">2026</span><a href="publications.html">Information shapes Koopman representation<div class="venue">ICLR 2026</div></a></li>
-              <li><span class="year" style="color:#85FFC7">2025</span><a href="publications.html">How more data can hurt: Instability and regularization in next-generation reservoir computing<div class="venue">Chaos</div></a></li>
-              <li><span class="year" style="color:#85FFC7">2025</span><a href="publications.html">Learning beyond experience: Generalizing to unseen state space with reservoir computing<div class="venue">Chaos</div></a></li>
+              <li><span class="year">2026</span><a href="publications.html#information-shapes-koopman-representation">Information shapes Koopman representation<div class="venue">ICLR 2026</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#how-more-data-can-hurt-instability-and-regularization">How more data can hurt: Instability and regularization in next-generation reservoir computing<div class="venue">Chaos</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#learning-beyond-experience-generalizing-to-unseen-state-space">Learning beyond experience: Generalizing to unseen state space with reservoir computing<div class="venue">Chaos</div></a></li>
             </ul>
           </div>
         </div>
@@ -122,7 +122,7 @@
 
       <article class="research-row" id="networks-emergence" style="--theme-accent: #7ED6E0">
         <div class="visual">
-          <div class="tag" style="color: #7ED6E0">Networks &amp; Emergence</div>
+          <div class="tag">Networks &amp; Emergence</div>
           <svg class="lab-visual" data-lab-visual="network" data-seed="38" data-nodes="34" aria-hidden="true"></svg>
         </div>
         <div>
@@ -136,19 +136,19 @@
           <div>
             <div class="col-label">Open questions</div>
             <ul class="questions">
-              <li><span class="arr" style="color:#7ED6E0">→</span><span>When do higher-order interactions qualitatively change collective dynamics?</span></li>
-              <li><span class="arr" style="color:#7ED6E0">→</span><span>What is the geometry of basins in high-dimensional networked systems?</span></li>
-              <li><span class="arr" style="color:#7ED6E0">→</span><span>Can hypergraph structure be reconstructed from observed dynamics alone?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>When do higher-order interactions qualitatively change collective dynamics?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>What is the geometry of basins in high-dimensional networked systems?</span></li>
+              <li><span class="arr" aria-hidden="true">→</span><span>Can hypergraph structure be reconstructed from observed dynamics alone?</span></li>
             </ul>
           </div>
           <div>
             <div class="col-label">Selected papers</div>
             <ul class="papers">
-              <li><span class="year" style="color:#7ED6E0">2026</span><a href="publications.html">Collective dynamics on higher-order networks<div class="venue">Nature Reviews Physics</div></a></li>
-              <li><span class="year" style="color:#7ED6E0">2025</span><a href="publications.html">Hypergraph reconstruction from dynamics<div class="venue">Nature Communications</div></a></li>
-              <li><span class="year" style="color:#7ED6E0">2024</span><a href="publications.html">Deeper but smaller: Higher-order interactions increase linear stability but shrink basins<div class="venue">Science Advances</div></a></li>
-              <li><span class="year" style="color:#7ED6E0">2023</span><a href="publications.html">Higher-order interactions shape collective dynamics differently in hypergraphs and simplicial complexes<div class="venue">Nature Communications</div></a></li>
-              <li><span class="year" style="color:#7ED6E0">2021</span><a href="publications.html">Basins with tentacles<div class="venue">Physical Review Letters</div></a></li>
+              <li><span class="year">2026</span><a href="publications.html#collective-dynamics-on-higher-order-networks">Collective dynamics on higher-order networks<div class="venue">Nature Reviews Physics</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#hypergraph-reconstruction-from-dynamics">Hypergraph reconstruction from dynamics<div class="venue">Nature Communications</div></a></li>
+              <li><span class="year">2024</span><a href="publications.html#deeper-but-smaller-higher-order-interactions-increase-linear">Deeper but smaller: Higher-order interactions increase linear stability but shrink basins<div class="venue">Science Advances</div></a></li>
+              <li><span class="year">2023</span><a href="publications.html#higher-order-interactions-shape-collective-dynamics-differently-in">Higher-order interactions shape collective dynamics differently in hypergraphs and simplicial complexes<div class="venue">Nature Communications</div></a></li>
+              <li><span class="year">2021</span><a href="publications.html#basins-with-tentacles">Basins with tentacles<div class="venue">Physical Review Letters</div></a></li>
             </ul>
           </div>
         </div>
@@ -159,7 +159,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="brand-row">
+        <div class="brand-row" role="img" aria-label="AID Lab">
           <span data-logo-mark data-size="26"></span>
           <span data-wordmark data-size="0.95">AID Lab</span>
         </div>
@@ -173,9 +173,9 @@
       <div class="footer-col">
         <div class="head">Connect</div>
         <div class="list">
-          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar ↗</a>
-          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv ↗</a>
-          <a href="https://github.com/y-z-zhang">GitHub ↗</a>
+          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="footer-col">
@@ -183,7 +183,7 @@
         <div class="list">
           <span style="color: var(--ink)">Yuanzhao Zhang</span>
           <span>Simons Empire Assistant Professor</span>
-          <a class="accent" href="https://y-zhang.com">y-zhang.com ↗</a>
+          <a class="accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

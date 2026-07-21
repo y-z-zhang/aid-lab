@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://lab.y-zhang.com/" />
   <meta property="og:url" content="https://lab.y-zhang.com/" />
@@ -71,7 +71,7 @@
       <a href="news.html">News</a>
       <a href="join.html">Join</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="mobile-menu" id="mobile-menu">
@@ -83,9 +83,9 @@
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <section class="hero">
-      <div data-flow-field data-accent="#FFB67A" data-density="1" data-speed="0.45" data-opacity="0.5" style="position:absolute;inset:0"></div>
+      <div data-flow-field aria-hidden="true" data-accent="#FFB67A" data-density="1" data-speed="0.45" data-opacity="0.5" style="position:absolute;inset:0"></div>
       <div class="vignette"></div>
       <div class="topbottom"></div>
       <div class="content">
@@ -100,8 +100,8 @@
 
     <section class="home-research">
       <div class="section-head">
-        <div class="label">§ Research</div>
-        <a class="more" href="research.html">All projects →</a>
+        <h2 class="label"><span aria-hidden="true">§</span> Research</h2>
+        <a class="more" href="research.html">All projects <span aria-hidden="true">→</span></a>
       </div>
       <div class="theme-grid">
         <a class="theme-card" href="research.html#ml-for-dynamics" style="--theme-accent: #FFB67A">
@@ -138,7 +138,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="brand-row">
+        <div class="brand-row" role="img" aria-label="AID Lab">
           <span data-logo-mark data-size="26"></span>
           <span data-wordmark data-size="0.95">AID Lab</span>
         </div>
@@ -152,9 +152,9 @@
       <div class="footer-col">
         <div class="head">Connect</div>
         <div class="list">
-          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar ↗</a>
-          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv ↗</a>
-          <a href="https://github.com/y-z-zhang">GitHub ↗</a>
+          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="footer-col">
@@ -162,7 +162,7 @@
         <div class="list">
           <span style="color: var(--ink)">Yuanzhao Zhang</span>
           <span>Simons Empire Assistant Professor</span>
-          <a class="accent" href="https://y-zhang.com">y-zhang.com ↗</a>
+          <a class="accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

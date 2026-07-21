@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://lab.y-zhang.com/people.html" />
   <meta property="og:url" content="https://lab.y-zhang.com/people.html" />
@@ -68,24 +68,24 @@
     </a>
     <nav class="links">
       <a href="research.html">Research</a>
-      <a class="active" href="people.html">People</a>
+      <a class="active" aria-current="page" href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
       <a href="join.html">Join</a>
     </nav>
-    <button class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
+    <button type="button" class="menu-toggle" aria-label="Menu" aria-controls="mobile-menu" aria-expanded="false">
       <span></span><span></span><span></span>
     </button>
     <div class="mobile-menu" id="mobile-menu">
       <a href="research.html">Research</a>
-      <a class="active" href="people.html">People</a>
+      <a class="active" aria-current="page" href="people.html">People</a>
       <a href="publications.html">Publications</a>
       <a href="news.html">News</a>
       <a href="join.html">Join</a>
     </div>
   </header>
 
-  <main id="main">
+  <main id="main" tabindex="-1">
     <h1 class="sr-only">People — AID Lab, University of Rochester</h1>
     <section class="people-section">
       <div class="pi-card">
@@ -100,10 +100,10 @@
           <div class="pi-title">Simons Empire Assistant Professor</div>
           <p class="bio">Yuanzhao is drawn to systems that are complex enough to surprise you, yet simple enough to understand — coupled oscillators, neural networks, and the territory in between. He earned his Ph.D. in physics from Northwestern in 2020 with Adilson Motter, then held a Schmidt Science Fellowship at Cornell with Steven Strogatz and an Omidyar Fellowship at the Santa Fe Institute before joining the University of Rochester in 2026. He likes problems that sit on the boundary between fields and explanations simple enough to sketch on a napkin.</p>
           <div class="pi-links">
-            <a class="link-accent" href="https://y-zhang.com">y-zhang.com ↗</a>
+            <a class="link-accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
             <span>yuanzhao.zhang@rochester.edu</span>
-            <a class="link-dim" href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Scholar ↗</a>
-            <a class="link-dim" href="https://github.com/y-z-zhang">GitHub ↗</a>
+            <a class="link-dim" href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Scholar <span aria-hidden="true">↗</span></a>
+            <a class="link-dim" href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
           </div>
         </div>
       </div>
@@ -113,7 +113,7 @@
         <div class="member-card">
           <h3>Declan Norton</h3>
           <div class="member-role">Postdoctoral researcher · from September 2026</div>
-          <p>Joining from the University of Maryland, where he completed a Ph.D. in physics in 2026. He works on machine learning for dynamical systems — reservoir computing, generalization to unseen state space, and forecasting from short time series. <a href="https://scholar.google.com/citations?user=haB4rDMAAAAJ">Google Scholar ↗</a></p>
+          <p>Joining from the University of Maryland, where he completed a Ph.D. in physics in 2026. He works on machine learning for dynamical systems — reservoir computing, generalization to unseen state space, and forecasting from short time series. <a href="https://scholar.google.com/citations?user=haB4rDMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a></p>
         </div>
       </div>
 
@@ -134,7 +134,7 @@
           <h3>The lab is being assembled. This page will grow.</h3>
           <p>Recruiting PhD students for Fall 2027 admission, with postdoc inquiries welcome year-round. UR undergraduates interested in research are encouraged to reach out.</p>
         </div>
-        <a class="btn-amber" href="join.html">How to join <span>→</span></a>
+        <a class="btn-amber" href="join.html">How to join <span aria-hidden="true">→</span></a>
       </div>
 
     </section>
@@ -143,7 +143,7 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="brand-row">
+        <div class="brand-row" role="img" aria-label="AID Lab">
           <span data-logo-mark data-size="26"></span>
           <span data-wordmark data-size="0.95">AID Lab</span>
         </div>
@@ -157,9 +157,9 @@
       <div class="footer-col">
         <div class="head">Connect</div>
         <div class="list">
-          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar ↗</a>
-          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv ↗</a>
-          <a href="https://github.com/y-z-zhang">GitHub ↗</a>
+          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
+          <a href="https://arxiv.org/search/?query=Yuanzhao+Zhang&amp;searchtype=author">arXiv <span aria-hidden="true">↗</span></a>
+          <a href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="footer-col">
@@ -167,7 +167,7 @@
         <div class="list">
           <span style="color: var(--ink)">Yuanzhao Zhang</span>
           <span>Simons Empire Assistant Professor</span>
-          <a class="accent" href="https://y-zhang.com">y-zhang.com ↗</a>
+          <a class="accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
         </div>
       </div>
     </div>

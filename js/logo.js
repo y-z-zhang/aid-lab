@@ -1,4 +1,6 @@
 // AID Lab logo + wordmark.
+// All styles are intentionally inline and self-contained — styles.css has
+// no wordmark rules, so this file is the single source of truth.
 // Injects markup into elements marked with:
 //   data-logo-mark         – the circular phase-space mark (data-size, data-accent)
 //   data-wordmark          – "AıD Lab" with phase-arc dot (data-size: 0..1)

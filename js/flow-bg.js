@@ -6,11 +6,15 @@
   const host = document.querySelector('[data-flow-field]');
   if (!host) return;
 
+  // Background color comes from the design token so a palette change
+  // can't desynchronize the canvas from the page.
+  const bg = (getComputedStyle(document.documentElement).getPropertyValue('--bg') || '#070A0D').trim();
+
   // Respect the user's motion preference. If reduced motion is requested,
   // leave the hero with the dark canvas background and skip the animation
   // entirely — no particles, no rAF loop.
   if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    host.style.background = '#070A0D';
+    host.style.background = bg;
     return;
   }
 
@@ -18,7 +22,7 @@
   canvas.style.width = '100%';
   canvas.style.height = '100%';
   canvas.style.display = 'block';
-  canvas.style.background = '#070A0D';
+  canvas.style.background = bg;
   host.appendChild(canvas);
 
   const accent = host.dataset.accent || '#FFB67A';
@@ -37,19 +41,22 @@
     return m ? [+m[0], +m[1], +m[2]] : [255, 182, 122];
   }
   const rgb = parseRgb(accent);
+  const bgRgb = parseRgb(bg);
 
   let raf = 0;
   let running = true;
   let last = performance.now();
   let particles = [];
-  let width = 0, height = 0, N = 0, scale = 0, cx = 0, cy = 0;
+  let width = 0, height = 0, N = 0, scale = 0, cx = 0, cy = 0, lastDpr = 0;
   const ctx = canvas.getContext('2d');
 
-  function setup() {
+  function setup(preserve) {
     const rect = host.getBoundingClientRect();
+    const ow = width, oh = height;
     width = Math.max(1, Math.round(rect.width));
     height = Math.max(1, Math.round(rect.height));
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    lastDpr = dpr;
     canvas.width = width * dpr;
     canvas.height = height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -58,14 +65,27 @@
     cy = height / 2;
     const density = baseDensity * (width < 720 ? 0.55 : 1.0);
     N = Math.round(220 * density);
-    particles = [];
-    for (let i = 0; i < N; i++) {
-      const p = {};
-      spawn(p);
-      p.age = Math.random() * p.life;
-      particles.push(p);
+    if (preserve && particles.length) {
+      // Rescale existing trajectories into the new bounds instead of a
+      // full respawn, so a window drag doesn't visibly restart the field.
+      particles.forEach(p => { p.x *= width / ow; p.y *= height / oh; });
+      while (particles.length < N) {
+        const p = {};
+        spawn(p);
+        p.age = Math.random() * p.life;
+        particles.push(p);
+      }
+      particles.length = N;
+    } else {
+      particles = [];
+      for (let i = 0; i < N; i++) {
+        const p = {};
+        spawn(p);
+        p.age = Math.random() * p.life;
+        particles.push(p);
+      }
     }
-    ctx.fillStyle = 'rgba(7,10,13,1)';
+    ctx.fillStyle = `rgba(${bgRgb[0]}, ${bgRgb[1]}, ${bgRgb[2]}, 1)`;
     ctx.fillRect(0, 0, width, height);
   }
 
@@ -97,7 +117,7 @@
   function frame(now) {
     const dt = Math.min(48, now - last) / 16.67;
     last = now;
-    ctx.fillStyle = 'rgba(7,10,13,0.06)';
+    ctx.fillStyle = `rgba(${bgRgb[0]}, ${bgRgb[1]}, ${bgRgb[2]}, 0.06)`;
     ctx.fillRect(0, 0, width, height);
     ctx.fillStyle = `rgba(${rgb[0]}, ${rgb[1]}, ${rgb[2]}, ${(0.35 * opacity).toFixed(3)})`;
     for (let i = 0; i < N; i++) {
@@ -130,10 +150,34 @@
   let resizeT = 0;
   window.addEventListener('resize', () => {
     clearTimeout(resizeT);
-    resizeT = setTimeout(() => { stop(); setup(); start(); }, 150);
+    resizeT = setTimeout(() => {
+      // Mobile URL-bar show/hide fires resize without changing the hero's
+      // box (its height is width-driven) — skip those entirely. A
+      // display-density change still needs a rebuild, so dpr is part of
+      // the test (dragging a window between retina and non-retina screens).
+      const rect = host.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+      if (Math.round(rect.width) === width && Math.round(rect.height) === height && dpr === lastDpr) return;
+      stop();
+      setup(true);
+      if (onscreen && !document.hidden) start();
+    }, 150);
   });
+
+  // Pause whenever the hero is scrolled out of view — no reason to keep
+  // drawing a canvas nobody can see.
+  let onscreen = true;
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver((entries) => {
+      // Take the newest record — a batched callback can carry several.
+      onscreen = entries[entries.length - 1].isIntersecting;
+      if (!onscreen) stop();
+      else if (!running && !document.hidden) start();
+    }).observe(host);
+  }
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden) stop();
-    else if (!running) start();
+    else if (!running && onscreen) start();
   });
 })();

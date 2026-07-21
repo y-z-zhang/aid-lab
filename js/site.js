@@ -53,6 +53,14 @@
   // any other button shows entries whose tag list includes the selected tag.
   const filterButtons = document.querySelectorAll('.pubs-filter button');
   if (filterButtons.length) {
+    // Correct the counter from the actual entry count on load, so the HTML
+    // literal can't drift when papers are added. Only write when it really
+    // differs — the span is an aria-live region, and rewriting it with the
+    // same text would announce itself to screen readers for no reason.
+    const initCounter = document.querySelector('.pubs-filter .count');
+    const total = document.querySelectorAll('.pub-entry').length;
+    const initText = `${total} ${total === 1 ? 'paper' : 'papers'}`;
+    if (initCounter && initCounter.textContent.trim() !== initText) initCounter.textContent = initText;
     filterButtons.forEach(btn => {
       btn.setAttribute('aria-pressed', String(btn.classList.contains('active')));
       btn.addEventListener('click', () => {

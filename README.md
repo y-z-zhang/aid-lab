@@ -9,10 +9,13 @@ led by Yuanzhao Zhang. Plain HTML/CSS/vanilla JS — no build step.
 
 - `*.html` — one file per page (home, research, people, publications, news, join, 404)
 - `styles.css` — all styling and design tokens
-- `js/` — `logo.js` (SVG mark/wordmark), `visuals.js` (research-theme SVGs),
-  `flow-bg.js` (hero animation), `site.js` (nav, filters, FAQ)
-- `assets/` — portrait + paper PDFs
-- `CNAME`, `robots.txt`, `sitemap.xml` — deployment / SEO
+- `js/` — `logo.js` (SVG mark/wordmark, styles intentionally inline),
+  `lab-visuals.js` (hand-drawn research SVG renderers), `draw-visuals.js`
+  (draws them onto `svg.lab-visual` elements), `rough.js` (vendored
+  RoughJS v4.6.6, MIT), `flow-bg.js` (hero animation), `site.js`
+  (nav, filters, FAQ)
+- `assets/` — portrait, og/social image, icons, paper PDFs
+- `CNAME`, `robots.txt`, `sitemap.xml`, `favicon.ico` — deployment / SEO
 
 ## Local preview
 
