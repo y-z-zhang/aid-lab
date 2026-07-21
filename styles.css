@@ -372,7 +372,7 @@ main { flex: 1; }
 
 .theme-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
   gap: clamp(28px, 3vw, 40px);
 }
 
@@ -847,10 +847,14 @@ main { flex: 1; }
   color: var(--accent);
 }
 
+@media (max-width: 600px) {
+  .pubs-year .row { grid-template-columns: 1fr; gap: 8px; }
+}
+
 .pub-entry {
   padding: 18px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 20px;
   align-items: start;
 }
@@ -1014,7 +1018,7 @@ main { flex: 1; }
 
 .join-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
   gap: 20px;
 }
 
