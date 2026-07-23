@@ -312,14 +312,15 @@ main { flex: 1; }
   margin-bottom: 32px;
 }
 
-.home-research .section-head .label {
+/* Real heading in the serif-italic accent voice of the year labels on
+   News and Publications. */
+.home-research .section-head h2 {
   margin: 0;
-  font-family: var(--mono);
+  font-family: var(--serif);
+  font-style: italic;
   font-weight: 400;
-  font-size: 11px;
-  letter-spacing: 0.22em;
-  color: var(--ink-dim);
-  text-transform: uppercase;
+  font-size: clamp(28px, 3.5vw, 40px);
+  color: var(--accent);
 }
 
 .home-research .section-head .more {
