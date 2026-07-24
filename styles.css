@@ -518,10 +518,9 @@ main { flex: 1; }
   display: grid;
   grid-template-columns: 16px 1fr;
   gap: 8px;
-  font-family: var(--serif);
-  font-size: 15px;
-  font-style: italic;
-  line-height: 1.35;
+  font-family: var(--sans);
+  font-size: 14.5px;
+  line-height: 1.45;
   color: var(--ink);
 }
 
