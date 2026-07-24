@@ -7,7 +7,7 @@
  *
  *   LabVisuals.drawAttractor(svgEl, opts)   // card 1 — "Learning of dynamics"
  *   LabVisuals.drawLandscape(svgEl, opts)   // card 2 — "Dynamics of learning"
- *   LabVisuals.drawNetwork(svgEl, opts)     // card 3 — "Rule of emergence"
+ *   LabVisuals.drawNetwork(svgEl, opts)     // card 3 — "Rules of emergence"
  *
  * Shared opts: { roughness, seed }. drawNetwork also takes { nodes }.
  * Deterministic for a given seed, so output is stable across re-renders.
