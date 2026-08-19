@@ -1,5 +1,5 @@
 /*
- * lab-visuals.js — hand-drawn research-card illustrations for AID Lab
+ * lab-visuals.js — hand-drawn research-card illustrations for the AI & Dynamics Group site
  * ------------------------------------------------------------------
  * Framework-agnostic. Depends on Rough.js (https://roughjs.com) loaded
  * first as `window.rough`. Exposes `window.LabVisuals` with three pure
@@ -11,12 +11,12 @@
  *
  * Shared opts: { roughness, seed }. drawNetwork also takes { nodes }.
  * Deterministic for a given seed, so output is stable across re-renders.
- * Palette is the AID Lab site palette (amber / green / cyan).
+ * Palette is the site palette (amber / green / cyan).
  */
 (function () {
   'use strict';
 
-  // ---- palette (matches the AID Lab site accents) ------------------------
+  // ---- palette (matches the site accents) ------------------------
   var PALETTE = {
     attractor: '#FFB67A',          // amber
     landscape: '#85FFC7',          // mint green

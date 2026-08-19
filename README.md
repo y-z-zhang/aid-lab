@@ -1,6 +1,6 @@
-# AID Lab website
+# AI & Dynamics Group website
 
-Static site for the **AI & Dynamics Group (AID Lab)** at the University of Rochester,
+Static site for the **AI & Dynamics Group** at the University of Rochester,
 led by Yuanzhao Zhang. Plain HTML/CSS/vanilla JS — no build step.
 
 **Live:** https://lab.y-zhang.com
