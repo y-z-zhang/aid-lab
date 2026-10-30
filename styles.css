@@ -1037,12 +1037,25 @@ main { flex: 1; }
   text-decoration: none;
 }
 
-.contact-strip .note {
+/* Notice above the join cards asking applicants to engage with the
+   research before emailing. color-mix() lines fall back to the plain
+   declarations before them in browsers without support. */
+.email-note {
+  margin: 0 0 20px;
+  padding: clamp(22px, 3vw, 32px) clamp(24px, 3.5vw, 40px);
+  background: var(--surface);
+  background: color-mix(in srgb, var(--accent) 8%, var(--surface));
+  border: 1px solid var(--rule);
+  border: 1px solid color-mix(in srgb, var(--accent) 35%, var(--rule));
+  border-left: 3px solid var(--accent);
+}
+
+.email-note p {
   font-family: var(--sans);
-  font-size: clamp(15px, 1.3vw, 17px);
-  line-height: 1.65;
-  color: var(--ink-soft);
-  max-width: 72ch;
+  font-size: clamp(16px, 1.6vw, 20px);
+  line-height: 1.6;
+  color: var(--ink);
+  max-width: 68ch;
   margin: 0;
 }
 
