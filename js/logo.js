@@ -3,7 +3,7 @@
 // no wordmark rules, so this file is the single source of truth.
 // Injects markup into elements marked with:
 //   data-logo-mark         – the circular phase-space mark (data-size, data-accent)
-//   data-wordmark          – "AI & Dynamics" + GROUP tag (data-size: 0..1)
+//   data-wordmark          – "AI & Dynamics Group" in the page font (data-size: 0..1)
 // The mark is a Möbius-ribbon infinity (single-edged, hence one edge color).
 
 (function () {
@@ -42,12 +42,9 @@
     </svg>`;
   }
 
-  function wordmark({ size = 1, color = '#EDEEEA', accent = '#FFB67A' }) {
+  function wordmark({ size = 1, color = '#EDEEEA' }) {
     const fs = 20 * size;
-    return `<span class="wordmark-host" style="display:inline-flex;align-items:baseline;gap:${(8 * size).toFixed(2)}px;font-family:'Geist',system-ui,sans-serif;color:${color};line-height:1">
-      <span style="font-weight:600;font-size:${fs}px;letter-spacing:-0.02em;white-space:nowrap">AI <span style="color:${accent}">&amp;</span> Dynamics</span>
-      <span style="font-family:'Geist Mono',ui-monospace,monospace;font-size:${(fs * 0.42).toFixed(2)}px;letter-spacing:0.14em;opacity:0.55;text-transform:uppercase;padding-bottom:${(fs * 0.06).toFixed(2)}px">Group</span>
-    </span>`;
+    return `<span class="wordmark-host" style="font-family:inherit;font-weight:600;font-size:${fs}px;color:${color};line-height:1.1">AI &amp; Dynamics Group</span>`;
   }
 
   document.querySelectorAll('[data-logo-mark]').forEach(el => {
@@ -62,7 +59,6 @@
     el.innerHTML = wordmark({
       size: parseFloat(el.dataset.size || '1'),
       color: el.dataset.color || '#EDEEEA',
-      accent: el.dataset.accent || '#FFB67A',
     });
   });
 })();

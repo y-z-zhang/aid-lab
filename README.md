@@ -13,8 +13,7 @@ led by Yuanzhao Zhang. Plain HTML/CSS/vanilla JS — no build step.
 - `js/` — `logo.js` (SVG mark/wordmark, styles intentionally inline),
   `lab-visuals.js` (hand-drawn research SVG renderers), `draw-visuals.js`
   (draws them onto `svg.lab-visual` elements), `rough.js` (vendored
-  RoughJS v4.6.6, MIT), `flow-bg.js` (hero animation), `site.js`
-  (nav, filters, FAQ)
+  RoughJS v4.6.6, MIT), `site.js` (nav, filters, FAQ)
 - `assets/` — portrait, og/social image, icons, paper PDFs
 - `CNAME`, `robots.txt`, `sitemap.xml`, `favicon.ico` — deployment / SEO
 

@@ -5,13 +5,13 @@
  * first as `window.rough`. Exposes `window.LabVisuals` with three pure
  * render functions, each taking an <svg> element + options:
  *
- *   LabVisuals.drawAttractor(svgEl, opts)   // card 1 — "Learning of dynamics"
- *   LabVisuals.drawLandscape(svgEl, opts)   // card 2 — "Dynamics of learning"
- *   LabVisuals.drawNetwork(svgEl, opts)     // card 3 — "Rules of emergence"
+ *   LabVisuals.drawAttractor(svgEl, opts)   // card 1 — ML for dynamics
+ *   LabVisuals.drawLandscape(svgEl, opts)   // card 2 — Physics of AI
+ *   LabVisuals.drawNetwork(svgEl, opts)     // card 3 — Networks and emergence
  *
  * Shared opts: { roughness, seed }. drawNetwork also takes { nodes }.
  * Deterministic for a given seed, so output is stable across re-renders.
- * Palette is the site palette (amber / green / cyan).
+ * Palette is the site's single amber accent.
  */
 (function () {
   'use strict';
@@ -19,11 +19,11 @@
   // ---- palette (matches the site accents) ------------------------
   var PALETTE = {
     attractor: '#FFB67A',          // amber
-    landscape: '#85FFC7',          // mint green
-    landscapeTrail: '#D6FFEC',     // lighter mint for the descent trail
-    network: '#7ED6E0',            // cyan
+    landscape: '#FFB67A',          // amber
+    landscapeTrail: '#FFE2C4',     // lighter amber for the descent trail
+    network: '#FFB67A',            // amber
     networkWhite: '#EDEEEA',       // site ink
-    networkEdge: '#5E86A6'         // muted connector
+    networkEdge: '#6B7280'         // muted connector
   };
 
   // ---- tiny seeded RNG (mulberry32) so layouts are reproducible ----------

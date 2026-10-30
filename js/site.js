@@ -1,6 +1,5 @@
 // Shared site behavior: sticky-nav scroll hint, mobile menu, FAQ toggles,
-// publication filter, smooth anchor scroll (handled in CSS), and the
-// per-theme accent palette.
+// and the publication filter. Smooth anchor scroll is handled in CSS.
 
 (function () {
   // --- External links and PDFs open in a new tab ---

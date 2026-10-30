@@ -13,7 +13,7 @@
   <meta property="og:image" content="https://lab.y-zhang.com/assets/og.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="AI &amp; Dynamics Group — The dynamics of learning, and the learning of dynamics." />
+  <meta property="og:image:alt" content="AI &amp; Dynamics Group, Department of Physics and Astronomy, University of Rochester" />
   <meta name="twitter:image" content="https://lab.y-zhang.com/assets/og.png" />
   <meta name="twitter:title" content="Research · AI &amp; Dynamics Group" />
   <meta name="twitter:description" content="Three research threads at the AI &amp; Dynamics Group — ML for dynamics, physics of AI, and networks &amp; emergence." />
@@ -22,7 +22,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <link rel="canonical" href="https://lab.y-zhang.com/research.html" />
   <meta property="og:url" content="https://lab.y-zhang.com/research.html" />
@@ -54,102 +54,90 @@
   </header>
 
   <main id="main" tabindex="-1">
-    <h1 class="sr-only">Research — AI &amp; Dynamics Group, University of Rochester</h1>
+    <h1 class="page-title">Research</h1>
     <div class="research-rows">
-      <article class="research-row" id="ml-for-dynamics" style="--theme-accent: #FFB67A">
+      <article class="research-row" id="ml-for-dynamics">
         <div class="visual">
-          <div class="tag">ML for Dynamics</div>
           <svg class="lab-visual" data-lab-visual="attractor" data-seed="7" aria-hidden="true"></svg>
         </div>
         <div>
-          <h2>Learning of dynamics</h2>
+          <h2>ML for dynamics</h2>
           <p class="overview">A model with no physics inside can sometimes out-forecast one built from the governing equations, and sometimes it just parrots its context. We study machine learning for dynamical systems, from reservoir computers to foundation models to hybrid physics-ML methods, mapping where each approach genuinely works, where it quietly fails, and why.</p>
-          <div class="keywords">
-            <span>Reservoir computing</span><span>Foundation models</span><span>Zero-shot forecasting</span><span>Equation discovery</span>
-          </div>
         </div>
         <div class="sidecol">
           <div>
-            <div class="col-label">Open questions</div>
+            <h3 class="col-label">Open questions</h3>
             <ul class="questions">
-              <li><span class="arr" aria-hidden="true">→</span><span>Can a foundation model forecast a dynamical system it has never seen?</span></li>
-              <li><span class="arr" aria-hidden="true">→</span><span>When does a black-box predictor outperform a structured one — and vice versa?</span></li>
-              <li><span class="arr" aria-hidden="true">→</span><span>How can we close the generalization gap of digital twins?</span></li>
+              <li>Can a foundation model forecast a dynamical system it has never seen?</li>
+              <li>When does a black-box predictor outperform a structured one — and vice versa?</li>
+              <li>How can we close the generalization gap of digital twins?</li>
             </ul>
           </div>
           <div>
-            <div class="col-label">Selected papers</div>
+            <h3 class="col-label">Selected papers</h3>
             <ul class="papers">
-              <li><span class="year">2026</span><a href="publications.html#context-parroting-a-simple-but-tough-to-beat">Context parroting: A simple but tough-to-beat baseline for foundation models in scientific ML<div class="venue">ICLR 2026</div></a></li>
-              <li><span class="year">2025</span><a href="publications.html#zero-shot-forecasting-of-chaotic-systems">Zero-shot forecasting of chaotic systems<div class="venue">ICLR 2025</div></a></li>
-              <li><span class="year">2023</span><a href="publications.html#catch-22s-of-reservoir-computing">Catch-22s of reservoir computing<div class="venue">Physical Review Research</div></a></li>
+              <li><span class="year">2026</span><a href="publications.html#context-parroting-a-simple-but-tough-to-beat">Context parroting: A simple but tough-to-beat baseline for foundation models in scientific ML<div class="venue"><i>ICLR 2026</i> · with W. Gilpin</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#zero-shot-forecasting-of-chaotic-systems">Zero-shot forecasting of chaotic systems<div class="venue"><i>ICLR 2025</i> · with W. Gilpin</div></a></li>
+              <li><span class="year">2023</span><a href="publications.html#catch-22s-of-reservoir-computing">Catch-22s of reservoir computing<div class="venue"><i>Physical Review Research</i> · with S. P. Cornelius</div></a></li>
             </ul>
           </div>
         </div>
       </article>
 
-      <article class="research-row" id="physics-of-ai" style="--theme-accent: #85FFC7">
+      <article class="research-row" id="physics-of-ai">
         <div class="visual">
-          <div class="tag">Physics of AI</div>
           <svg class="lab-visual" data-lab-visual="landscape" data-seed="21" aria-hidden="true"></svg>
         </div>
         <div>
-          <h2>Dynamics of learning</h2>
+          <h2>Physics of AI</h2>
           <p class="overview">More training data should help, yet it sometimes makes a learned model worse. We treat machine learning as a physical system, where training traces a trajectory, a representation has a geometry, and learning can pass through phase transitions. This lens tells us when models generalize, when they memorize, and when they break.</p>
-          <div class="keywords">
-            <span>Loss landscapes</span><span>Training dynamics</span><span>Generalization</span><span>Regularization</span>
-          </div>
         </div>
         <div class="sidecol">
           <div>
-            <div class="col-label">Open questions</div>
+            <h3 class="col-label">Open questions</h3>
             <ul class="questions">
-              <li><span class="arr" aria-hidden="true">→</span><span>When can physics-uninformed machine-learning models extrapolate?</span></li>
-              <li><span class="arr" aria-hidden="true">→</span><span>What features of a loss landscape distinguish a model that will generalize from one that will overfit?</span></li>
-              <li><span class="arr" aria-hidden="true">→</span><span>How do different inductive biases change the learning dynamics?</span></li>
+              <li>When can physics-uninformed machine-learning models extrapolate?</li>
+              <li>What features of a loss landscape distinguish a model that will generalize from one that will overfit?</li>
+              <li>How do different inductive biases change the learning dynamics?</li>
             </ul>
           </div>
           <div>
-            <div class="col-label">Selected papers</div>
+            <h3 class="col-label">Selected papers</h3>
             <ul class="papers">
-              <li><span class="year">2026</span><a href="publications.html#information-shapes-koopman-representation">Information shapes Koopman representation<div class="venue">ICLR 2026</div></a></li>
-              <li><span class="year">2025</span><a href="publications.html#how-more-data-can-hurt-instability-and-regularization">How more data can hurt: Instability and regularization in next-generation reservoir computing<div class="venue">Chaos</div></a></li>
-              <li><span class="year">2025</span><a href="publications.html#learning-beyond-experience-generalizing-to-unseen-state-space">Learning beyond experience: Generalizing to unseen state space with reservoir computing<div class="venue">Chaos</div></a></li>
+              <li><span class="year">2026</span><a href="publications.html#information-shapes-koopman-representation">Information shapes Koopman representation<div class="venue"><i>ICLR 2026</i> · with X. Cheng, W. Yuan, Y. Yang, S. Cheng, Y. He, and Z. Sun</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#how-more-data-can-hurt-instability-and-regularization">How more data can hurt: Instability and regularization in next-generation reservoir computing<div class="venue"><i>Chaos</i> · with E. R. dos Santos, H. Zhang, and S. P. Cornelius</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#learning-beyond-experience-generalizing-to-unseen-state-space">Learning beyond experience: Generalizing to unseen state space with reservoir computing<div class="venue"><i>Chaos</i> · with D. A. Norton and M. Girvan</div></a></li>
             </ul>
           </div>
         </div>
       </article>
 
-      <article class="research-row" id="networks-emergence" style="--theme-accent: #7ED6E0">
+      <article class="research-row" id="networks-emergence">
         <div class="visual">
-          <div class="tag">Networks &amp; Emergence</div>
           <svg class="lab-visual" data-lab-visual="network" data-seed="38" data-nodes="34" aria-hidden="true"></svg>
         </div>
         <div>
-          <h2>Rules of emergence</h2>
+          <h2>Networks and emergence</h2>
           <p class="overview">A few interacting oscillators can synchronize, split into chimeras, or even compute. We study how network topology, higher-order interactions, and the geometry of basins decide which of these behaviors a coupled system settles into. The rules fit on one line; the behavior does not.</p>
-          <div class="keywords">
-            <span>Synchronization</span><span>Higher-order interactions</span><span>Networks</span><span>Basin geometry</span>
-          </div>
         </div>
         <div class="sidecol">
           <div>
-            <div class="col-label">Open questions</div>
+            <h3 class="col-label">Open questions</h3>
             <ul class="questions">
-              <li><span class="arr" aria-hidden="true">→</span><span>How do network structures shape collective dynamics?</span></li>
-              <li><span class="arr" aria-hidden="true">→</span><span>What is the geometry of basins in high-dimensional networked systems?</span></li>
-              <li><span class="arr" aria-hidden="true">→</span><span>Can hypergraph structure be reconstructed from observed dynamics alone?</span></li>
+              <li>How do network structures shape collective dynamics?</li>
+              <li>What is the geometry of basins in high-dimensional networked systems?</li>
+              <li>Can hypergraph structure be reconstructed from observed dynamics alone?</li>
             </ul>
           </div>
           <div>
-            <div class="col-label">Selected papers</div>
+            <h3 class="col-label">Selected papers</h3>
             <ul class="papers">
-              <li><span class="year">2026</span><a href="publications.html#collective-dynamics-on-higher-order-networks">Collective dynamics on higher-order networks<div class="venue">Nature Reviews Physics</div></a></li>
-              <li><span class="year">2025</span><a href="publications.html#hypergraph-reconstruction-from-dynamics">Hypergraph reconstruction from dynamics<div class="venue">Nature Communications</div></a></li>
-              <li><span class="year">2024</span><a href="publications.html#deeper-but-smaller-higher-order-interactions-increase-linear">Deeper but smaller: Higher-order interactions increase linear stability but shrink basins<div class="venue">Science Advances</div></a></li>
-              <li><span class="year">2023</span><a href="publications.html#higher-order-interactions-shape-collective-dynamics-differently-in">Higher-order interactions shape collective dynamics differently in hypergraphs and simplicial complexes<div class="venue">Nature Communications</div></a></li>
-              <li><span class="year">2021</span><a href="publications.html#basins-with-tentacles">Basins with tentacles<div class="venue">Physical Review Letters</div></a></li>
-              <li><span class="year">2020</span><a href="publications.html#symmetry-independent-stability-analysis-of-synchronization-patterns">Symmetry-independent stability analysis of synchronization patterns<div class="venue">SIAM Review</div></a></li>
+              <li><span class="year">2026</span><a href="publications.html#collective-dynamics-on-higher-order-networks">Collective dynamics on higher-order networks<div class="venue"><i>Nature Reviews Physics</i> · with F. Battiston, C. Bick, M. Lucas, A. P. Millán, and P. S. Skardal</div></a></li>
+              <li><span class="year">2025</span><a href="publications.html#hypergraph-reconstruction-from-dynamics">Hypergraph reconstruction from dynamics<div class="venue"><i>Nature Communications</i> · with R. Delabays, G. De Pasquale, and F. Dörfler</div></a></li>
+              <li><span class="year">2024</span><a href="publications.html#deeper-but-smaller-higher-order-interactions-increase-linear">Deeper but smaller: Higher-order interactions increase linear stability but shrink basins<div class="venue"><i>Science Advances</i> · with P. S. Skardal, F. Battiston, G. Petri, and M. Lucas</div></a></li>
+              <li><span class="year">2023</span><a href="publications.html#higher-order-interactions-shape-collective-dynamics-differently-in">Higher-order interactions shape collective dynamics differently in hypergraphs and simplicial complexes<div class="venue"><i>Nature Communications</i> · with M. Lucas and F. Battiston</div></a></li>
+              <li><span class="year">2021</span><a href="publications.html#basins-with-tentacles">Basins with tentacles<div class="venue"><i>Physical Review Letters</i> · with S. H. Strogatz</div></a></li>
+              <li><span class="year">2020</span><a href="publications.html#symmetry-independent-stability-analysis-of-synchronization-patterns">Symmetry-independent stability analysis of synchronization patterns<div class="venue"><i>SIAM Review</i> · with A. E. Motter</div></a></li>
             </ul>
           </div>
         </div>
@@ -158,37 +146,8 @@
   </main>
 
   <footer class="site-footer">
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="brand-row" role="img" aria-label="AI &amp; Dynamics Group">
-          <span data-logo-mark data-size="26"></span>
-          <span data-wordmark data-size="0.95">AI &amp; Dynamics Group</span>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="head">Contact</div>
-        <div class="list">
-          <a href="mailto:yuanzhao.zhang@rochester.edu">yuanzhao.zhang@rochester.edu</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="head">Connect</div>
-        <div class="list">
-          <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar <span aria-hidden="true">↗</span></a>
-          <a href="https://www.pas.rochester.edu/people/faculty/zhang-yuanzhao/index.html">U of R profile <span aria-hidden="true">↗</span></a>
-          <a href="https://github.com/y-z-zhang">GitHub <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <div class="head">Principal Investigator</div>
-        <div class="list">
-          <span style="color: var(--ink)">Yuanzhao Zhang</span>
-          <span>Simons Empire Assistant Professor</span>
-          <a class="accent" href="https://y-zhang.com">y-zhang.com <span aria-hidden="true">↗</span></a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-copy">© 2026 AI &amp; Dynamics Group · University of Rochester</div>
+    <p>AI &amp; Dynamics Group · Department of Physics and Astronomy, University of Rochester</p>
+    <p><a href="mailto:yuanzhao.zhang@rochester.edu">yuanzhao.zhang@rochester.edu</a> · <a href="https://scholar.google.com/citations?user=xueImSMAAAAJ">Google Scholar</a> · <a href="https://www.pas.rochester.edu/people/faculty/zhang-yuanzhao/index.html">U of R profile</a> · <a href="https://github.com/y-z-zhang">GitHub</a> · <a href="https://y-zhang.com">y-zhang.com</a></p>
   </footer>
 
   <script src="js/logo.js"></script>
