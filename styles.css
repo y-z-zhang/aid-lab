@@ -684,34 +684,6 @@ main { flex: 1; }
   margin: 12px 0 0;
 }
 
-.recruiting {
-  margin-top: 28px;
-  padding: clamp(28px, 4vw, 44px);
-  border: 1px dashed var(--rule);
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 24px;
-  align-items: center;
-}
-
-.recruiting h3 {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: clamp(22px, 2.8vw, 30px);
-  line-height: 1.18;
-  letter-spacing: -0.015em;
-  margin: 0;
-}
-
-.recruiting p {
-  font-family: var(--sans);
-  font-size: 15.5px;
-  line-height: 1.55;
-  color: var(--ink-soft);
-  margin: 14px 0 0;
-  max-width: 620px;
-}
-
 .btn-amber {
   font-family: var(--sans);
   font-weight: 500;
