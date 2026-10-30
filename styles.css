@@ -403,6 +403,9 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
   border-top: 1px solid var(--rule);
   display: grid;
   grid-template-columns: minmax(220px, 320px) minmax(0, 1fr);
+  /* The figure spans both rows; 1fr gives its extra height to the second row,
+     so the heading sits directly above the side column. */
+  grid-template-rows: auto 1fr;
   gap: clamp(20px, 2.5vw, 36px);
   align-items: start;
 }
@@ -436,15 +439,6 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
   line-height: 1.2;
   color: var(--ink);
   margin: 0;
-}
-
-.research-row .overview {
-  font-family: var(--sans);
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--ink-soft);
-  margin: 12px 0 0;
-  max-width: 68ch;
 }
 
 .research-row .sidecol {
@@ -517,7 +511,7 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
 }
 
 @media (max-width: 900px) {
-  .research-row { grid-template-columns: 1fr; }
+  .research-row { grid-template-columns: 1fr; grid-template-rows: none; }
   .research-row .figure { grid-row: auto; max-width: 420px; }
   .research-row .sidecol { grid-template-columns: 1fr; }
 }

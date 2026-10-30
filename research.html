@@ -61,12 +61,9 @@
           <div class="visual">
             <img src="assets/figures/ml-for-dynamics.webp" alt="A Lorenz butterfly in fine gray lines with an amber forecast and a gray true path looping together from a small amber dot; below, the x coordinate over time, where the amber forecast lies on the gray truth for several swings before they split." width="800" height="800" fetchpriority="high" decoding="async" />
           </div>
-          <figcaption>Computed for this site: a context-parroting forecast (amber) of the Lorenz system, which copies what followed the closest match in its own past. It stays on the same wing as the truth (gray) for nearly three Lyapunov times. Method from <a href="publications.html#context-parroting-a-simple-but-tough-to-beat">Zhang and Gilpin, ICLR 2026</a>.</figcaption>
+          <figcaption>A context-parroting forecast (amber) of the Lorenz system, which copies what followed the closest match in its own past. It stays on the same wing as the truth (gray) for nearly three Lyapunov times. Method from <a href="publications.html#context-parroting-a-simple-but-tough-to-beat">Zhang and Gilpin, ICLR 2026</a>.</figcaption>
         </figure>
-        <div>
-          <h2>ML for dynamics</h2>
-          <p class="overview">We study how machine learning models forecast dynamical systems, from reservoir computers to time-series foundation models. Foundation models pretrained on diverse time series can forecast previously unseen chaotic systems without retraining, and they are competitive with custom-trained models, particularly when training data is limited. Yet a naive baseline that copies directly from its context scores higher than leading foundation models on a diverse range of dynamical systems, at a tiny fraction of the computational cost.</p>
-        </div>
+        <h2>ML for dynamics</h2>
         <div class="sidecol">
           <div>
             <h3 class="col-label">Open questions</h3>
@@ -92,12 +89,9 @@
           <div class="visual">
             <img src="assets/figures/physics-of-ai.webp" alt="Thin gray contour lines of a three-well potential; two paths start from the same point at upper right, travel together, then split: the amber path settles over the right magnet and the gray one over the lower-left magnet (small circles)." width="800" height="800" loading="lazy" decoding="async" />
           </div>
-          <figcaption>Computed for this site: two releases of a magnetic pendulum 0.002 apart (amber, gray) travel together, then settle over different magnets (circles). Thin lines are contours of the potential. This pendulum is the test system in <a href="publications.html#how-more-data-can-hurt-instability-and-regularization">Zhang et al., Chaos 2025</a>.</figcaption>
+          <figcaption>Two releases of a magnetic pendulum 0.002 apart (amber, gray) travel together, then settle over different magnets (circles). Thin lines are contours of the potential. This pendulum is the test system in <a href="publications.html#how-more-data-can-hurt-instability-and-regularization">Zhang et al., Chaos 2025</a>.</figcaption>
         </figure>
-        <div>
-          <h2>Physics of AI</h2>
-          <p class="overview">We look for the hidden inductive biases and implicit regularization that let machine learning models extrapolate without built-in physics. Reservoir computers trained on trajectories from a single basin of attraction can capture system behavior in basins that never appear in their training data. In next-generation reservoir computing, more training data can make a model lose stability even as it learns a better representation of the flow map.</p>
-        </div>
+        <h2>Physics of AI</h2>
         <div class="sidecol">
           <div>
             <h3 class="col-label">Open questions</h3>
@@ -123,12 +117,9 @@
           <div class="visual">
             <img src="assets/figures/networks-emergence.webp" alt="Jagged gray outlines nested around an amber-outlined polygon: the basin of one twisted state of a ring of oscillators, wrapped in onion-like layers of competing basins." width="800" height="800" loading="lazy" decoding="async" />
           </div>
-          <figcaption>Computed for this site after Fig. 4 of <a href="publications.html#basins-with-tentacles">Zhang and Strogatz, PRL 2021</a>: a slice of state space centered on a twisted state of a ring of 83 Kuramoto oscillators. Its basin (amber) is wrapped in onion-like layers; gray lines enclose states that end with at most 3, 6, and 9 fewer twists.</figcaption>
+          <figcaption>A slice of state space centered on a twisted state of a ring of 83 Kuramoto oscillators, after Fig. 4 of <a href="publications.html#basins-with-tentacles">Zhang and Strogatz, PRL 2021</a>. Its basin (amber) is wrapped in onion-like layers; gray lines enclose states that end with at most 3, 6, and 9 fewer twists.</figcaption>
         </figure>
-        <div>
-          <h2>Networks and emergence</h2>
-          <p class="overview">To study how global order emerges from local interactions, we represent complex systems as networks or hypergraphs. Higher-order interactions, which couple more than two units at once, can make full synchrony more stable against small perturbations while markedly shrinking its basin of attraction. In a ring of identical Kuramoto oscillators, the basins are shaped like octopuses, with nearly all their volume in the tentacles.</p>
-        </div>
+        <h2>Networks and emergence</h2>
         <div class="sidecol">
           <div>
             <h3 class="col-label">Open questions</h3>
