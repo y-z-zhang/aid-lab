@@ -219,7 +219,7 @@ main { flex: 1; }
   font-size: clamp(15px, 1.4vw, 19px);
   line-height: 1.55;
   color: var(--ink-soft);
-  margin: 24px 0 0;
+  margin: 0;
   max-width: 720px;
 }
 
@@ -1038,7 +1038,7 @@ main { flex: 1; }
   background: var(--surface);
   border: 1px solid var(--rule);
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
   gap: 24px;
   align-items: center;
 }
@@ -1065,9 +1065,13 @@ main { flex: 1; }
   text-decoration: none;
 }
 
-.contact-strip .info .addr {
-  color: var(--ink-dim);
-  font-size: 12px;
+.contact-strip .note {
+  font-family: var(--sans);
+  font-size: clamp(15px, 1.3vw, 17px);
+  line-height: 1.65;
+  color: var(--ink-soft);
+  max-width: 72ch;
+  margin: 0;
 }
 
 .faq-block {
