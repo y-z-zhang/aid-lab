@@ -33,7 +33,7 @@ html {
 }
 
 /* Animate in-page scrolls and transitions only for users who have not
-   asked for reduced motion. */
+   asked for reduced motion (the canvas animation opts out in JS). */
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior: smooth; }
 }
@@ -55,17 +55,15 @@ body {
 
 a { color: inherit; }
 
-/* Links in running text and the footer are underlined; the nav is not. */
-main a,
-.site-footer a {
+/* Links in running text are underlined; nav and footer lists are not. */
+main a {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 2px;
   text-decoration-color: var(--ink-dim);
 }
 
-main a:hover,
-.site-footer a:hover { text-decoration-color: currentColor; }
+main a:hover { text-decoration-color: currentColor; }
 
 main { flex: 1; }
 
@@ -242,17 +240,43 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
 ============================================================ */
 
 .hero {
-  padding: clamp(56px, 8vw, 112px) clamp(20px, 5vw, 64px) clamp(32px, 4vw, 48px);
+  position: relative;
+  overflow: hidden;
+  height: clamp(600px, 62vw, 820px);
+}
+
+.hero canvas { position: absolute; inset: 0; }
+
+.hero .vignette,
+.hero .topbottom {
+  position: absolute; inset: 0; pointer-events: none;
+}
+
+.hero .vignette {
+  background: radial-gradient(ellipse 70% 60% at 30% 55%, transparent 0%, color-mix(in srgb, var(--bg) 75%, transparent) 75%);
+}
+
+.hero .topbottom {
+  background: linear-gradient(180deg, color-mix(in srgb, var(--bg) 87%, transparent) 0%, transparent 18%, transparent 70%, var(--bg) 100%);
+}
+
+.hero .content {
+  position: absolute;
+  left: clamp(20px, 5vw, 64px);
+  right: clamp(20px, 5vw, 64px);
+  top: 50%;
+  transform: translateY(-46%);
 }
 
 .hero h1 {
   font-family: var(--sans);
   font-weight: 600;
-  font-size: clamp(32px, 4.6vw, 56px);
-  line-height: 1.1;
+  font-size: clamp(36px, 6vw, 76px);
+  line-height: 1.05;
+  letter-spacing: -0.01em;
   color: var(--ink);
   margin: 0;
-  max-width: 900px;
+  max-width: 1080px;
   text-wrap: balance;
 }
 
@@ -264,8 +288,12 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
   font-size: clamp(17px, 1.5vw, 20px);
   line-height: 1.55;
   color: var(--ink-soft);
-  margin: 20px 0 0;
+  margin: 24px 0 0;
   max-width: 620px;
+}
+
+@media (max-width: 720px) {
+  .hero { height: 600px; }
 }
 
 /* ============================================================
@@ -273,7 +301,7 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
 ============================================================ */
 
 .home-research {
-  padding: clamp(24px, 4vw, 48px) clamp(20px, 5vw, 64px) clamp(50px, 8vw, 90px);
+  padding: clamp(60px, 10vw, 110px) clamp(20px, 5vw, 64px) clamp(50px, 8vw, 90px);
   background: var(--bg);
 }
 
@@ -946,19 +974,76 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
 ============================================================ */
 
 .site-footer {
-  padding: clamp(32px, 4vw, 48px) clamp(20px, 5vw, 64px) clamp(28px, 3vw, 40px);
+  padding: clamp(48px, 6vw, 72px) clamp(20px, 5vw, 64px) clamp(28px, 3vw, 40px);
   border-top: 1px solid var(--rule);
   font-family: var(--sans);
 }
 
-.site-footer p {
-  font-size: 15px;
-  line-height: 1.7;
-  color: var(--ink-dim);
-  margin: 0;
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: clamp(28px, 4vw, 56px);
+  align-items: start;
+  margin-bottom: clamp(32px, 4vw, 48px);
 }
 
-.site-footer a { color: var(--ink-soft); }
+.footer-col .head {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.footer-col p {
+  font-family: var(--sans);
+  font-size: 13.5px;
+  line-height: 1.55;
+  color: var(--ink-dim);
+  margin: 0;
+  max-width: 280px;
+}
+
+.footer-col .brand-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.footer-col .list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--ink);
+}
+
+.footer-col .list a {
+  color: var(--ink);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+
+.footer-col .list a:hover { color: var(--accent); }
+
+.footer-col .list span { color: var(--ink-dim); }
+
+.footer-col .list .accent {
+  color: var(--accent);
+  margin-top: 4px;
+}
+
+.footer-copy {
+  padding-top: clamp(20px, 2vw, 28px);
+  border-top: 1px solid var(--rule);
+  font-family: var(--mono);
+  font-size: 10.5px;
+  color: var(--ink-dim);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
 /* ============================================================
    FOCUS
@@ -978,7 +1063,7 @@ button:focus-visible {
 /* ============================================================
    PRINT
    Dark palette flips to ink-on-paper via the custom properties;
-   chrome (nav, footer, filters, figures) is stripped; every
+   chrome (nav, footer, filters, figures, animation) is stripped; every
    publication prints regardless of the active filter.
 ============================================================ */
 
@@ -1002,6 +1087,9 @@ button:focus-visible {
   .menu-toggle,
   .mobile-menu,
   .pubs-filter,
+  [data-flow-field],
+  .hero .vignette,
+  .hero .topbottom,
   .theme-card .visual,
   .research-row .visual {
     display: none !important;
@@ -1017,7 +1105,8 @@ button:focus-visible {
     break-inside: avoid;
   }
 
-  .hero { padding: 24pt 0; }
+  .hero { height: auto; padding: 24pt 0; }
+  .hero .content { position: static; transform: none; }
 
   a, main a { text-decoration: none; color: #000; }
 
