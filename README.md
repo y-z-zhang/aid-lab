@@ -7,7 +7,8 @@ led by Yuanzhao Zhang. Plain HTML/CSS/vanilla JS — no build step.
 
 ## Structure
 
-- `*.html` — one file per page (home, research, people, publications, news, join, 404)
+- `*.html` — one file per page (home, research, people, publications, news, join, 404);
+  news is currently hidden from the nav and sitemap (commented-out links)
 - `styles.css` — all styling and design tokens
 - `js/` — `logo.js` (SVG mark/wordmark, styles intentionally inline),
   `lab-visuals.js` (hand-drawn research SVG renderers), `draw-visuals.js`
