@@ -11,11 +11,9 @@ led by Yuanzhao Zhang. Plain HTML/CSS/vanilla JS — no build step.
   news is currently hidden from the nav and sitemap (commented-out links)
 - `styles.css` — all styling and design tokens
 - `js/` — `logo.js` (SVG mark/wordmark, styles intentionally inline),
-  `lab-visuals.js` (hand-drawn research SVG renderers), `draw-visuals.js`
-  (draws them onto `svg.lab-visual` elements), `rough.js` (vendored
-  RoughJS v4.6.6, MIT), `flow-bg.js` (hero animation), `site.js`
-  (nav, filters, FAQ)
-- `assets/` — portrait, og/social image, icons, paper PDFs
+  `flow-bg.js` (hero animation), `site.js` (nav, filters, FAQ)
+- `assets/` — portrait, og/social image, icons, paper PDFs, `figures/`
+  (one figure per research theme, cropped from our papers; credits on the pages)
 - `CNAME`, `robots.txt`, `sitemap.xml`, `favicon.ico` — deployment / SEO
 
 ## Local preview

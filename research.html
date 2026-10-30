@@ -57,19 +57,22 @@
     <h1 class="page-title">Research</h1>
     <div class="research-rows">
       <article class="research-row" id="ml-for-dynamics">
-        <div class="visual">
-          <svg class="lab-visual" data-lab-visual="attractor" data-seed="7" aria-hidden="true"></svg>
-        </div>
+        <figure class="figure">
+          <div class="visual">
+            <img src="assets/figures/ml-for-dynamics.webp" alt="Two-lobed Lorenz attractor in the x–y plane: the blue zero-shot prediction overlays the gray ground-truth trajectory, tracing the same two lobes." width="800" height="800" fetchpriority="high" decoding="async" />
+          </div>
+          <figcaption>Zero-shot forecast of the Lorenz oscillator by the time-series foundation model Chronos (blue) versus ground truth (gray). From <a href="publications.html#zero-shot-forecasting-of-chaotic-systems">Y. Zhang and W. Gilpin, ICLR 2025</a>.</figcaption>
+        </figure>
         <div>
           <h2>ML for dynamics</h2>
-          <p class="overview">A model with no physics inside can sometimes out-forecast one built from the governing equations, and sometimes it just parrots its context. We study machine learning for dynamical systems, from reservoir computers to foundation models to hybrid physics-ML methods, mapping where each approach genuinely works, where it quietly fails, and why.</p>
+          <p class="overview">We study how machine learning models forecast dynamical systems, from reservoir computers to time-series foundation models. Foundation models pretrained on diverse time series can forecast previously unseen chaotic systems without retraining, and they are competitive with custom-trained models, particularly when training data is limited. Yet a naive baseline that copies directly from its context scores higher than leading foundation models on a diverse range of dynamical systems, at a tiny fraction of the computational cost.</p>
         </div>
         <div class="sidecol">
           <div>
             <h3 class="col-label">Open questions</h3>
             <ul class="questions">
-              <li>Can a foundation model forecast a dynamical system it has never seen?</li>
-              <li>When does a black-box predictor outperform a structured one — and vice versa?</li>
+              <li>What mechanisms do foundation models use to forecast systems they have never seen?</li>
+              <li>When does a black-box predictor beat one that incorporates known physics?</li>
               <li>How can we close the generalization gap of digital twins?</li>
             </ul>
           </div>
@@ -85,12 +88,15 @@
       </article>
 
       <article class="research-row" id="physics-of-ai">
-        <div class="visual">
-          <svg class="lab-visual" data-lab-visual="landscape" data-seed="21" aria-hidden="true"></svg>
-        </div>
+        <figure class="figure">
+          <div class="visual">
+            <img src="assets/figures/physics-of-ai.webp" alt="Fractal-like map in orange, crimson and teal: each starting position of a magnetic pendulum, released from rest, colored by the magnet a trained model predicts it reaches." width="800" height="800" loading="lazy" decoding="async" />
+          </div>
+          <figcaption>Basins of a magnetic pendulum predicted by next-generation reservoir computing trained on 100 trajectories; with 1000 trajectories, all its predictions blew up. Reproduced (Fig. 4, middle panel, axes removed) from <a href="https://doi.org/10.1063/5.0262977">Y. Zhang, E. R. dos Santos, H. Zhang, and S. P. Cornelius, Chaos 35, 073102 (2025)</a>, with the permission of AIP Publishing.</figcaption>
+        </figure>
         <div>
           <h2>Physics of AI</h2>
-          <p class="overview">More training data should help, yet it sometimes makes a learned model worse. We treat machine learning as a physical system, where training traces a trajectory, a representation has a geometry, and learning can pass through phase transitions. This lens tells us when models generalize, when they memorize, and when they break.</p>
+          <p class="overview">We look for the hidden inductive biases and implicit regularization that let machine learning models extrapolate without built-in physics. Reservoir computers trained on trajectories from a single basin of attraction can capture system behavior in basins that never appear in their training data. In next-generation reservoir computing, more training data can make a model lose stability even as it learns a better representation of the flow map.</p>
         </div>
         <div class="sidecol">
           <div>
@@ -113,12 +119,15 @@
       </article>
 
       <article class="research-row" id="networks-emergence">
-        <div class="visual">
-          <svg class="lab-visual" data-lab-visual="network" data-seed="38" data-nodes="34" aria-hidden="true"></svg>
-        </div>
+        <figure class="figure">
+          <div class="visual">
+            <img src="assets/figures/networks-emergence.webp" alt="Red-and-blue map of a two-dimensional slice of oscillator state space: a dark-blue central basin wrapped in nested layers of lighter blue, then pale and red basins." width="800" height="800" loading="lazy" decoding="async" />
+          </div>
+          <figcaption>Slice of state space centered on a twisted state of a ring of Kuramoto oscillators: its basin (dark blue) is wrapped in onion-like layers of competing basins. Adapted (Fig. 4(b), axes and colorbar removed) from Y. Zhang and S. H. Strogatz, “Basins with tentacles,” <a href="https://doi.org/10.1103/PhysRevLett.127.194101">Phys. Rev. Lett. 127, 194101 (2021)</a>, <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>.</figcaption>
+        </figure>
         <div>
           <h2>Networks and emergence</h2>
-          <p class="overview">A few interacting oscillators can synchronize, split into chimeras, or even compute. We study how network topology, higher-order interactions, and the geometry of basins decide which of these behaviors a coupled system settles into. The rules fit on one line; the behavior does not.</p>
+          <p class="overview">To study how global order emerges from local interactions, we represent complex systems as networks or hypergraphs. Higher-order interactions, which couple more than two units at once, can make full synchrony more stable against small perturbations while markedly shrinking its basin of attraction. In a ring of identical Kuramoto oscillators, the basins are shaped like octopuses, with nearly all their volume in the tentacles.</p>
         </div>
         <div class="sidecol">
           <div>
@@ -180,9 +189,6 @@
   </footer>
 
   <script src="js/logo.js"></script>
-  <script src="js/rough.js"></script>
-  <script src="js/lab-visuals.js"></script>
-  <script src="js/draw-visuals.js"></script>
   <script src="js/site.js"></script>
   <script data-goatcounter="https://aidlab.goatcounter.com/count"
           async src="https://gc.zgo.at/count.js"></script>

@@ -346,16 +346,19 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
   border: 1px solid var(--card-border);
 }
 
-/* The drawing fills its .visual container (home cards + research rows). */
-.visual .lab-visual {
+/* A figure from one of our papers fills its square frame (home cards and
+   research rows). */
+.visual img {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .theme-card .body {
-  padding: 24px 0 0;
+  padding: 20px 0 0;
 }
 
 .theme-card .body h3 {
@@ -364,7 +367,20 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
   font-size: clamp(21px, 1.8vw, 26px);
   line-height: 1.2;
   color: var(--ink);
-  margin: 0 0 12px;
+  margin: 0;
+}
+
+/* Caption and credit links brighten on hover (their text is dim). */
+.theme-item .fig-credit a:hover,
+.research-row .figure figcaption a:hover { color: var(--ink-soft); }
+
+/* Source of the figure, under each home card (outside the card link). */
+.theme-item .fig-credit {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+  margin: 6px 0 0;
 }
 
 /* Cards are links: underline the title on hover and keyboard focus. */
@@ -393,12 +409,24 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
 
 .research-row:last-child { border-bottom: 1px solid var(--rule); }
 
-.research-row .visual {
+.research-row .figure {
   grid-row: span 2;
+  margin: 0;
+}
+
+.research-row .visual {
   aspect-ratio: 1 / 1;
   border: 1px solid var(--card-border);
   position: relative;
   overflow: hidden;
+}
+
+.research-row .figure figcaption {
+  font-family: var(--sans);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--ink-dim);
+  margin-top: 10px;
 }
 
 .research-row h2 {
@@ -490,7 +518,7 @@ main > .page-title + * { padding-top: clamp(20px, 2.5vw, 28px); }
 
 @media (max-width: 900px) {
   .research-row { grid-template-columns: 1fr; }
-  .research-row .visual { aspect-ratio: 16 / 9; grid-row: auto; }
+  .research-row .figure { grid-row: auto; max-width: 420px; }
   .research-row .sidecol { grid-template-columns: 1fr; }
 }
 
@@ -1063,7 +1091,7 @@ button:focus-visible {
 /* ============================================================
    PRINT
    Dark palette flips to ink-on-paper via the custom properties;
-   chrome (nav, footer, filters, figures, animation) is stripped; every
+   chrome (nav, footer, filters, animation) is stripped; every
    publication prints regardless of the active filter.
 ============================================================ */
 
@@ -1089,9 +1117,7 @@ button:focus-visible {
   .pubs-filter,
   [data-flow-field],
   .hero .vignette,
-  .hero .topbottom,
-  .theme-card .visual,
-  .research-row .visual {
+  .hero .topbottom {
     display: none !important;
   }
 
