@@ -1,0 +1,6 @@
+# Regenerable outputs: basin map (2.6 MB, compute_basins.py), candidate list (find_pairs.py),
+# rendered PNG (render.py). The committed data/validation.json records the basin-map checks.
+data/basins_N1600.npz
+data/candidates.json
+out/
+__pycache__/

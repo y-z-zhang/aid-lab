@@ -1,0 +1,5 @@
+# Regenerable, not committed: rendered PNG (render.py), bytecode from importing kuramoto_ring.py,
+# and the dt/2 map that 'compute_slice.py --dt 0.05' writes for validate.py (0.75 MB)
+out/
+__pycache__/
+data/*_dt0.05.npz

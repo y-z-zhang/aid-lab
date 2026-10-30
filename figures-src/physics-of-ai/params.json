@@ -1,0 +1,46 @@
+{
+  "_about": "Inputs to render.py (Physics of AI figure). Model constants live in pendulum.py. Lengths in *_px are pixels at the 800 px output (dpi 100).",
+  "pair": {
+    "_about": "Two releases from rest, one basin-map cell (0.001875) apart. The amber path starts at (x0, y0), the grey one at (x1, y1). labels = magnet each path is finally trapped over (0 right, 1 lower-left, 2 upper-left).",
+    "x0": 0.8559375,
+    "y0": 0.4490624999999999,
+    "x1": 0.8578125000000001,
+    "y1": 0.4490624999999999,
+    "labels": [0, 1],
+    "path_points": [3135, 3079],
+    "provenance": {
+      "found_by": "find_pairs.py (seed 3), candidate index 7 of the 12 kept, ranked by split time",
+      "basin_map": "data/basins_N1600.npz from compute_basins.py (N = 1600, dt = 0.0025, T = 100)",
+      "grid_cells_row_col": [[560, 1256], [560, 1257]],
+      "basin_map_labels": [0, 1],
+      "t_split": 3.46,
+      "t_split_definition": "first time the two paths are more than 0.08 apart"
+    }
+  },
+  "integration": {
+    "_about": "pendulum.trajectory: RK4 from rest, energy checked every step; after E < E_C - 1e-3 (and t > t_min) continue for `settle` time units, then stop.",
+    "dt": 0.0025,
+    "T_max": 40.0,
+    "t_min": 1.0,
+    "settle": 3.0
+  },
+  "style": {
+    "size_px": 800,
+    "dpi": 100,
+    "background": "#070A0D",
+    "window_half_width": 1.15,
+    "contour_grid": 900,
+    "contour_levels": {"start": -4.7, "stop": -0.9, "num": 14},
+    "contour_color": "#343C42",
+    "contour_lw_px": 1.2,
+    "amber": "#FFB67A",
+    "amber_lw_px": 3.0,
+    "grey": "#8A938F",
+    "grey_lw_px": 2.4,
+    "capture_cut": 0.30,
+    "start_dot_px": 9,
+    "magnet_px": 10,
+    "magnet_edge": "#8A938F",
+    "magnet_edge_lw_px": 1.4
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "N": 1600,
+  "dt": 0.0025,
+  "T": 100.0,
+  "seed": 20261030,
+  "n_points": 2560000,
+  "main_runtime_s": 67.4,
+  "untrapped_at_T": 0,
+  "max_energy_increase_between_checks": -2.545990085423e-10,
+  "basin_fractions": [
+    0.33468984375,
+    0.332655078125,
+    0.332655078125
+  ],
+  "ttrap_percentiles_50_90_99_max": [
+    6.05,
+    8.15,
+    9.3,
+    12.9
+  ],
+  "subsample_size": 51200,
+  "mismatch_dt_half": 0.0,
+  "n_mismatch_dt_half": 0,
+  "mismatch_dt_double": 3.90625e-05,
+  "n_mismatch_dt_double": 2,
+  "max_energy_increase_dt_half": -7.480576158513941e-10,
+  "max_energy_increase_dt_double": -4.72740735446564e-08,
+  "mismatch_T_200": 0.0,
+  "ref_dop853_n": 1000,
+  "ref_dop853_mismatch": 0.0,
+  "ref_dop853_n_mismatch": 0,
+  "ref_dop853_untrapped": 0,
+  "ref_runtime_s": 9.5,
+  "nearest_at_T100_n": 5000,
+  "nearest_at_T100_mismatch": 0.0,
+  "max_speed_at_T100": 0.00029407268964482853,
+  "mirror_violations": 0
+}

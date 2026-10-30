@@ -1,0 +1,3 @@
+# Regenerable: rendered PNG (render.py) and bytecode
+out/
+__pycache__/
